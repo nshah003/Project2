@@ -10,16 +10,23 @@ Vschematic|sch
 LHW7|HW7
 
 # Technologies:
-Tbicmos|ScaleFORbicmos()D22.0
+Tmocmos|ScaleFORmocmos()D22.0
 Tmocmos|MoCMOSAlternateActivePolyRules()BT|ScaleFORmocmos()D22.0|mocmosNumberOfMetalLayers()I3|mocmosSecondPolysilicon()BF
 
 # Cell 6TSRAM;1{ic}
-C6TSRAM;1{ic}||artwork|1447611190179|1447611190179|E
+C6TSRAM;1{ic}||artwork|1447611190179|1447611719853|E
 Ngeneric:Facet-Center|art@0||0|0||||AV
+NBox|art@1||0|0|6|6||
+Nschematic:Wire_Pin|pin@2||0|3||||
+Nschematic:Wire_Pin|pin@3||-3|0||||
+Nschematic:Wire_Pin|pin@4||3|0||||
+EBL||D5G2;|pin@3||B
+EBL_B||D5G2;|pin@4||B
+EWL||D5G2;|pin@2||I
 X
 
 # Cell 6TSRAM;1{sch}
-C6TSRAM;1{sch}||schematic|1447610258849|1447611068683|
+C6TSRAM;1{sch}||schematic|1447610258849|1447611736433|
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NOff-Page|conn@0||-16|9||||
 NOff-Page|conn@1||-12|12|||RRR|
