@@ -1,12 +1,13 @@
 # header information:
-HProject2|9.06
+HProject2|8.10
 
 # Views:
 Vicon|ic
 Vschematic|sch
 
 # Technologies:
-Tmocmos|ScaleFORmocmos()D22.0
+Tbicmos|ScaleFORbicmos()D22.0
+Tmocmos|MoCMOSAlternateActivePolyRules()BT|ScaleFORmocmos()D22.0|mocmosNumberOfMetalLayers()I3|mocmosSecondPolysilicon()BF
 
 # Cell 6TSRAM;1{ic}
 C6TSRAM;1{ic}||artwork|1447611190179|1447611190179|E
