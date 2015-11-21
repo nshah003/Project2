@@ -1,14 +1,14 @@
 *** SPICE deck for cell milestone_test{sch} from library Project2
 *** Created on Thu Nov 19, 2015 19:37:04
-*** Last revised on Thu Nov 19, 2015 20:14:10
-*** Written on Thu Nov 19, 2015 20:14:19 by Electric VLSI Design System, version 9.06
+*** Last revised on Sat Nov 21, 2015 17:41:04
+*** Written on Sat Nov 21, 2015 18:02:42 by Electric VLSI Design System, 
+*version 8.10
 *** Layout tech: mocmos, foundry MOSIS
 *** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
-* Model cards are described in this file:
-.include /Users/neilnshah/Desktop/JUNIOR-YEAR/Fall15/Courses/ESE370/Project2/Project2/22nm_HP.pm
+.OPTIONS NOMOD NOPAGE
 
-*** SUBCIRCUIT Project2__6TSRAM FROM CELL 6TSRAM{sch}
-.SUBCKT Project2__6TSRAM BL BL_B WL
+*** CELL: 6TSRAM{sch}
+.SUBCKT _6TSRAM BL BL_B WL
 ** GLOBAL gnd
 ** GLOBAL vdd
 Mnmos@0 net@2 WL BL gnd N L=0.022U W=0.22U
@@ -17,25 +17,25 @@ Mnmos@2 net@5 net@2 gnd gnd N L=0.022U W=0.22U
 Mnmos@3 net@2 net@5 gnd gnd N L=0.022U W=0.022U
 Mpmos@0 vdd net@2 net@5 vdd P L=0.022U W=0.22U
 Mpmos@1 vdd net@5 net@2 vdd P L=0.022U W=0.022U
-.ENDS Project2__6TSRAM
+.ENDS _6TSRAM
 
-*** SUBCIRCUIT Project1__notBaseline FROM CELL Project1:notBaseline{sch}
-.SUBCKT Project1__notBaseline in out
+*** CELL: Project1:notBaseline{sch}
+.SUBCKT notBaseline in out
 ** GLOBAL gnd
 ** GLOBAL vdd
 Mnmos@0 out in gnd gnd N L=0.022U W=0.022U
 Mpmos@0 vdd in out vdd P L=0.022U W=0.022U
-.ENDS Project1__notBaseline
+.ENDS notBaseline
 
-*** SUBCIRCUIT Project2__precharge FROM CELL precharge{sch}
-.SUBCKT Project2__precharge BL BL_B Clk_B
+*** CELL: precharge{sch}
+.SUBCKT precharge BL BL_B Clk_B
 ** GLOBAL vdd
 Mpmos@0 vdd Clk_B BL_B vdd P L=0.022U W=0.022U
 Mpmos@1 vdd Clk_B BL vdd P L=0.022U W=0.022U
-.ENDS Project2__precharge
+.ENDS precharge
 
-*** SUBCIRCUIT Project2__tri_state_buffer FROM CELL tri_state_buffer{sch}
-.SUBCKT Project2__tri_state_buffer data En Out
+*** CELL: tri_state_inverter{sch}
+.SUBCKT tri_state_inverter En Out data
 ** GLOBAL gnd
 ** GLOBAL vdd
 Mnmos@0 net@16 En gnd gnd N L=0.022U W=0.022U
@@ -44,30 +44,33 @@ Mnmos@2 net@3 En Out gnd N L=0.022U W=0.022U
 Mpmos@0 vdd En net@16 vdd P L=0.022U W=0.022U
 Mpmos@1 vdd data net@3 vdd P L=0.022U W=0.022U
 Mpmos@2 Out net@16 net@3 vdd P L=0.022U W=0.022U
-.ENDS Project2__tri_state_buffer
+.ENDS tri_state_inverter
 
-*** SUBCIRCUIT Project2__milestone FROM CELL milestone{sch}
-.SUBCKT Project2__milestone Clk_B En Read Wdata WL
+*** CELL: milestone{sch}
+.SUBCKT milestone Clk_B En Read WL Wdata
 ** GLOBAL gnd
 ** GLOBAL vdd
-X_6TSRAM@0 net@0 net@4 WL Project2__6TSRAM
-XnotBasel@0 En net@46 Project1__notBaseline
-XnotBasel@1 Wdata net@33 Project1__notBaseline
-XnotBasel@2 Read_not Read Project1__notBaseline
-Xprecharg@0 net@0 net@4 Clk_B Project2__precharge
-Xtri_stat@2 net@4 net@46 Read_not Project2__tri_state_buffer
-Xtri_stat@3 Wdata En net@0 Project2__tri_state_buffer
-Xtri_stat@4 net@4 net@46 tri_stat@4_Out Project2__tri_state_buffer
-Xtri_stat@5 net@33 En net@4 Project2__tri_state_buffer
-.ENDS Project2__milestone
+Mnmos@1 net@0 net@88 gnd gnd N L=0.044U W=0.044U
+Mpmos@0 vdd net@88 net@0 vdd P L=0.022U W=0.11U
+X_6TSRAM@0 net@0 net@4 WL _6TSRAM
+XnotBasel@0 En net@46 notBaseline
+Xprecharg@0 net@0 net@4 Clk_B precharge
+Xtri_stat@2 net@46 Read net@4 tri_state_inverter
+Xtri_stat@3 En net@88 Wdata tri_state_inverter
+Xtri_stat@5 En net@4 Wdata tri_state_inverter
+.ENDS milestone
 
 .global gnd vdd
 
 *** TOP LEVEL CELL: milestone_test{sch}
-VVPWL@0 en gnd pwl (0ps 0V 1.5ns 0V 1.6ns 1V 3.2ns 1V 3.3ns 0V 5.5ns 0V 5.6ns 1V 7.2ns 1V 7.3ns 0V) DC 0V AC 0V 0
-VVPWL@1 wdata gnd pwl (0ps 0V 1.5ns 0V 1.6ns 1V 3.2ns 1V 3.3ns 0V) DC 0V AC 0V 0
+VVPWL@0 en gnd pwl (0ps 0V 1.5ns 0V 1.6ns 1V 3.2ns 1V 3.3ns 0V 5.5ns 0V 5.6ns 
++1V 7.2ns 1V 7.3ns 0V) DC 0V AC 0V 0
+VVPWL@1 wdata gnd pwl (0ps 0V 1.5ns 0V 1.6ns 1V 3.2ns 1V 3.3ns 0V) DC 0V AC 
++0V 0
 VVPulse@0 clock gnd pulse (0 1V 0ns 0ps 0ps 1ns 2ns) DC 0V AC 0V 0
-VVPulse@1 clock_b gnd pulse (1V 0 0ns 0ps 0ps 1ns 2ns) DC 0V AC 0V 0
+VVPulse@1 net@27 gnd pulse (0V 0 0ns 0ps 0ps 1ns 2ns) DC 0V AC 0V 0
 VV_Generi@0 vdd gnd DC 1 AC 0
-Xmileston@0 clock_b en net@32 wdata clock Project2__milestone
+Xmileston@0 clock en Read clock wdata milestone
+* Trailer cards are described in this file:
+.include /home/aasif/Desktop/22nm_HP.pm
 .END

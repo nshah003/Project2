@@ -1,5 +1,5 @@
 # header information:
-HProject2|9.06
+HProject2|8.10
 
 # Views:
 Vicon|ic
@@ -14,22 +14,24 @@ LProject1|Project1
 LspicepartsS3|spicepartsS3
 
 # Technologies:
-Tmocmos|ScaleFORmocmos()D22.0
+Tbicmos|ScaleFORbicmos()D22.0
+Tmocmos|MoCMOSAlternateActivePolyRules()BT|ScaleFORmocmos()D22.0|mocmosNumberOfMetalLayers()I3|mocmosSecondPolysilicon()BF
 
 # Cell 6TSRAM;1{ic}
-C6TSRAM;1{ic}||artwork|1447611190179|1447611719853|E
+C6TSRAM;1{ic}||artwork|1447611190179|1448137453555|E
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NBox|art@1||0|0|6|6||
 Nschematic:Wire_Pin|pin@2||0|3||||
 Nschematic:Wire_Pin|pin@3||-3|0||||
 Nschematic:Wire_Pin|pin@4||3|0||||
+Ngeneric:Invisible-Pin|pin@5||0|0|||||ART_message(D5G1;)S6T cell
 EBL||D5G2;|pin@3||B
 EBL_B||D5G2;|pin@4||B
 EWL||D5G2;|pin@2||I
 X
 
 # Cell 6TSRAM;1{sch}
-C6TSRAM;1{sch}||schematic|1447610258849|1447978548690|
+C6TSRAM;1{sch}||schematic|1447610258849|1448139397077|
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NOff-Page|conn@0||-16|9||||
 NOff-Page|conn@1||-12|12|||RRR|
@@ -70,10 +72,8 @@ Awire|net@12|||900|pin@5||5|1|nmos@2|d|5|-2
 Awire|net@13|||0|nmos@1|s|7|1|pin@5||5|1
 Awire|net@14|||2700|pin@2||-1|-4|pin@6||-1|1
 Awire|net@15|||2700|pin@6||-1|1|pin@3||-1|4
-Awire|net@16|||0|pin@5||5|1|pin@6||-1|1
 Awire|net@17|||2700|pin@0||1|-4|pin@7||1|-1
 Awire|net@18|||2700|pin@7||1|-1|pin@1||1|4
-Awire|net@19|||1800|pin@4||-5|-1|pin@7||1|-1
 Awire|net@20|||2700|nmos@0|g|-9|2|pin@8||-9|9
 Awire|net@21|||0|pin@8||-9|9|conn@0|y|-14|9
 Awire|net@22|||2700|nmos@1|g|9|4|pin@9||9|9
@@ -90,6 +90,8 @@ Awire|net@32|||900|conn@2|y|12|10|pin@14||12|1
 Awire|net@33|||0|pin@14||12|1|nmos@1|d|11|1
 Awire|net@34|||900|conn@1|y|-12|10|pin@15||-12|-1
 Awire|net@35|||1800|pin@15||-12|-1|nmos@0|s|-11|-1
+Awire|net@36|||0|pin@5||5|1|pin@6||-1|1
+Awire|net@37|||1800|pin@4||-5|-1|pin@7||1|-1
 EBL||D5G2;X2;|conn@1|a|B
 EBL_B||D5G2;X2;|conn@2|a|B
 EWL||D5G2;X2;|conn@0|a|I
@@ -629,7 +631,7 @@ EWdata||D5G2;|pin@4||I
 X
 
 # Cell milestone;1{sch}
-Cmilestone;1{sch}||schematic|1447978505724|1447982714377|
+Cmilestone;1{sch}||schematic|1447978505724|1448146946190|
 I6TSRAM;1{ic}|6TSRAM@0||-2|10|||D5G4;
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NOff-Page|conn@0||-25|-5|||RR|
@@ -637,8 +639,9 @@ NOff-Page|conn@1||-25|-11||||
 NOff-Page|conn@2||-25|-14||||
 NOff-Page|conn@3||-26|23||||
 NOff-Page|conn@4||-26|15||||
+NGround|gnd@0||-23|-1||||
+NTransistor|nmos@1||-24|4|||R||ATTR_length(D5G0.5;X-0.5;Y-1;)S2|ATTR_width(D5G1;X0.5;Y-1;)S2
 IProject1:notBaseline;1{ic}|notBasel@0||1|-11|||D5G4;
-IProject1:notBaseline;1{ic}|notBasel@1||1|-14|||D5G4;
 NWire_Pin|pin@0||-4|17||||
 NWire_Pin|pin@1||-6|17||||
 NWire_Pin|pin@2||-6|10||||
@@ -654,17 +657,25 @@ NWire_Pin|pin@22||-5|-14||||
 NWire_Pin|pin@23||-2|23||||
 NWire_Pin|pin@24||-2|15||||
 NWire_Pin|pin@25||-13|2||||
-NWire_Pin|pin@26||4|2||||
 NWire_Pin|pin@27||6|2||||
 NWire_Pin|pin@28||6|-11||||
 NWire_Pin|pin@29||10|-5||||
 NWire_Pin|pin@30||-7|-5||||
 NWire_Pin|pin@34||-7|-11||||
+NWire_Pin|pin@36||-33|11||||
+NWire_Pin|pin@39||-14|10||||
+NWire_Pin|pin@40||-14|6||||
+NWire_Pin|pin@41||-18|-14||||
+NWire_Pin|pin@42||-27|4||||
+NWire_Pin|pin@43||-27|9||||
+NWire_Pin|pin@44||-6|5||||
+NWire_Pin|pin@45||-27|5||||
+NTransistor|pmos@0||-25|9|||R|2|ATTR_length(D5G0.5;X-0.5;Y-1;)S1|ATTR_width(D5G1;X0.5;Y-1;)S5
 Iprecharge;1{ic}|precharg@0||-2|20|||D5G4;
-Itri_state_buffer;1{ic}|tri_stat@2||-14|-1|RRR||D5G4;
-Itri_state_buffer;1{ic}|tri_stat@3||-6|-1|R||D5G4;
-Itri_state_buffer;1{ic}|tri_stat@4||3|-1|RRR||D5G4;
-Itri_state_buffer;1{ic}|tri_stat@5||11|-1|R||D5G4;
+NPower|pwr@0||-33|12||||
+Itri_state_inverter;1{ic}|tri_stat@2||-14|-1|RRR||D5G4;
+Itri_state_inverter;1{ic}|tri_stat@3||-6|-1|R||D5G4;
+Itri_state_inverter;1{ic}|tri_stat@5||11|-1|R||D5G4;
 Awire|net@0|||900|precharg@0|BL|-4|18|pin@0||-4|17
 Awire|net@1|||0|pin@0||-4|17|pin@1||-6|17
 Awire|net@2|||900|pin@1||-6|17|pin@2||-6|10
@@ -674,25 +685,18 @@ Awire|net@5|||1800|pin@3||0|17|pin@4||2|17
 Awire|net@6|||900|pin@4||2|17|pin@5||2|10
 Awire|net@7|||0|pin@5||2|10|6TSRAM@0|BL_B|1|10
 Awire|net@8|||2700|tri_stat@2|Val|-15|1|pin@6||-15|3
-Awire|net@11|||2700|tri_stat@4|Val|2|1|pin@8||2|3
 Awire|net@12|||1800|pin@8||2|3|pin@9||11|3
 Awire|net@13|||900|pin@9||11|3|tri_stat@5|Out|11|1
 Awire|net@14|||900|pin@5||2|10|pin@8||2|3
 Awire|net@16|||1800|conn@0|a|-23|-5|pin@10||-14|-5
 Awire|net@17|||2700|pin@10||-14|-5|tri_stat@2|Out|-14|-3
-Awire|net@33|||1800|notBasel@1|out|4|-14|pin@21||12|-14
 Awire|net@34|||2700|pin@21||12|-14|tri_stat@5|Val|12|-3
 Awire|net@35|||900|tri_stat@3|Val|-5|-3|pin@22||-5|-14
-Awire|net@36|||1800|pin@22||-5|-14|notBasel@1|in|-2|-14
-Awire|net@38|||1800|conn@2|y|-23|-14|pin@22||-5|-14
 Awire|net@39|||1800|conn@3|y|-24|23|pin@23||-2|23
 Awire|net@40|||900|pin@23||-2|23|precharg@0|Clk_B|-2|22
 Awire|net@41|||1800|conn@4|y|-24|15|pin@24||-2|15
 Awire|net@42|||900|pin@24||-2|15|6TSRAM@0|WL|-2|13
 Awire|net@46|||2700|tri_stat@2|En|-13|1|pin@25||-13|2
-Awire|net@47|||1800|pin@25||-13|2|pin@26||4|2
-Awire|net@48|||900|pin@26||4|2|tri_stat@4|En|4|1
-Awire|net@49|||1800|pin@26||4|2|pin@27||6|2
 Awire|net@50|||1800|notBasel@0|out|4|-11|pin@28||6|-11
 Awire|net@52|||900|pin@27||6|2|pin@28||6|-11
 Awire|net@53|||900|tri_stat@5|En|10|-3|pin@29||10|-5
@@ -701,8 +705,24 @@ Awire|net@55|||2700|pin@30||-7|-5|tri_stat@3|En|-7|-3
 Awire|net@62|||0|notBasel@0|in|-2|-11|pin@34||-7|-11
 Awire|net@63|||0|pin@34||-7|-11|conn@1|y|-23|-11
 Awire|net@64|||900|pin@30||-7|-5|pin@34||-7|-11
-Awire|net@65|||2700|tri_stat@3|Out|-6|1|pin@2||-6|10
 Awire|net@66|||1800|pin@6||-15|3|pin@8||2|3
+Awire|net@69|||1800|pin@25||-13|2|pin@27||6|2
+Awire|net@72|||900|pwr@0||-33|12|pin@36||-33|11
+Awire|net@73|||0|pmos@0|d|-23|11|pin@36||-33|11
+Awire|net@80|||0|6TSRAM@0|BL|-5|10|pin@39||-14|10
+Awire|net@81|||900|pin@39||-14|10|pin@40||-14|6
+Awire|net@83|||1800|conn@2|y|-23|-14|pin@41||-18|-14
+Awire|net@84|||1800|pin@41||-18|-14|pin@22||-5|-14
+Awire|net@85|||1800|pin@22||-5|-14|pin@21||12|-14
+Awire|net@87|||3150|nmos@1|d|-22|6|pmos@0|s|-23|7
+Awire|net@88|||0|nmos@1|g|-25|4|pin@42||-27|4
+Awire|net@90|||1800|pin@43||-27|9|pmos@0|g|-26|9
+Awire|net@91|||450|nmos@1|s|-22|2|gnd@0||-23|1
+Awire|net@92|||2700|tri_stat@3|Out|-6|1|pin@44||-6|5
+Awire|net@93|||2700|pin@42||-27|4|pin@45||-27|5
+Awire|net@94|||2700|pin@45||-27|5|pin@43||-27|9
+Awire|net@95|||0|pin@44||-6|5|pin@45||-27|5
+Awire|net@97|||0|pin@40||-14|6|nmos@1|d|-22|6
 EClk_B||D5G2;X2;|conn@3|a|I
 EEn||D5G2;|conn@1|a|I
 ERead||D5G2;|conn@0|y|O
@@ -711,11 +731,11 @@ EWdata||D5G2;|conn@2|a|I
 X
 
 # Cell milestone_test;1{sch}
-Cmilestone_test;1{sch}||schematic|1447979824854|1447982050083|
+Cmilestone_test;1{sch}||schematic|1447979824854|1448145664951|
 IspicepartsS3:VPWL;1{ic}|VPWL@0||-7|-6|||D5G4;|ATTR_ACM(D6G0.5;NPX-9.5;Y-6;)S0V|ATTR_ACP(D6G0.5;NPX-9.5;Y-6.5;)I0|ATTR_VDC(D6G0.5;NPX-9.5;Y-7;)S0V|ATTR_pwl(D6G0.5;NPX-9.5;Y-5.5;)S0ps 0V 1.5ns 0V 1.6ns 1V 3.2ns 1V 3.3ns 0V 5.5ns 0V 5.6ns 1V 7.2ns 1V 7.3ns 0V
 IspicepartsS3:VPWL;1{ic}|VPWL@1||-3|-8|||D5G4;|ATTR_ACM(D6G0.5;NPX3.5;Y-5;)S0V|ATTR_ACP(D6G0.5;NPX3.5;Y-5.5;)I0|ATTR_VDC(D6G0.5;NPX3.5;Y-6;)S0V|ATTR_pwl(D6G0.5;NPX-5.5;Y-4.5;)S0ps 0V 1.5ns 0V 1.6ns 1V 3.2ns 1V 3.3ns 0V
 IspicepartsS3:VPulse;1{ic}|VPulse@0||-14|-4|||D5G4;|ATTR_ACM(D6G0.5;NPX2.5;Y-2;)S0V|ATTR_ACP(D6G0.5;NPX2.5;Y-2.5;)I0|ATTR_PW(D6G0.5;NPX2.5;Y-1;)S1ns|ATTR_Per(D6G0.5;NPX2.5;Y-1.5;)S2ns|ATTR_TD(D6G0.5;NPX2.5;Y0.5;)S0ns|ATTR_TF(D6G0.5;NPX2.5;Y-0.5;)S0ps|ATTR_TR(D6G0.5;NPX2.5;)S0ps|ATTR_V1(D6G0.5;NPX2.5;Y1.5;)S0|ATTR_V2(D6G0.5;NPX2.5;Y1;)S1V|ATTR_VDC(D6G0.5;NPX2.5;Y-3;)S0V
-IspicepartsS3:VPulse;1{ic}|VPulse@1||-21|-2|||D5G4;|ATTR_ACM(D6G0.5;NPX2.5;Y-2;)S0V|ATTR_ACP(D6G0.5;NPX2.5;Y-2.5;)I0|ATTR_PW(D6G0.5;NPX2.5;Y-1;)S1ns|ATTR_Per(D6G0.5;NPX2.5;Y-1.5;)S2ns|ATTR_TD(D6G0.5;NPX2.5;Y0.5;)S0ns|ATTR_TF(D6G0.5;NPX2.5;Y-0.5;)S0ps|ATTR_TR(D6G0.5;NPX2.5;)S0ps|ATTR_V1(D6G0.5;NPX2.5;Y1.5;)S1V|ATTR_V2(D6G0.5;NPX2.5;Y1;)S0|ATTR_VDC(D6G0.5;NPX2.5;Y-3;)S0V
+IspicepartsS3:VPulse;1{ic}|VPulse@1||-21|-2|||D5G4;|ATTR_ACM(D6G0.5;NPX2.5;Y-2;)S0V|ATTR_ACP(D6G0.5;NPX2.5;Y-2.5;)I0|ATTR_PW(D6G0.5;NPX2.5;Y-1;)S1ns|ATTR_Per(D6G0.5;NPX2.5;Y-1.5;)S2ns|ATTR_TD(D6G0.5;NPX2.5;Y0.5;)S0ns|ATTR_TF(D6G0.5;NPX2.5;Y-0.5;)S0ps|ATTR_TR(D6G0.5;NPX2.5;)S0ps|ATTR_V1(D6G0.5;NPX2.5;Y1.5;)S0V|ATTR_V2(D6G0.5;NPX2.5;Y1;)S0|ATTR_VDC(D6G0.5;NPX2.5;Y-3;)S0V
 IspicepartsS3:V_Generic;1{ic}|V_Generi@0||-25|-6|||D5G4;|ATTR_Voltage(D6G0.5;PX-1.5;)SDC 1 AC 0
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NGround|gnd@0||-25|-12||||
@@ -729,15 +749,15 @@ NWire_Pin|pin@7||-3|-9||||
 NWire_Pin|pin@8||-7|-9||||
 NWire_Pin|pin@11||-21|3||||
 NWire_Pin|pin@12||-21|-9||||
+NWire_Pin|pin@13||5|0||||
+NWire_Pin|pin@19||-14|3||||
 NPower|pwr@0||-25|4||||
-NWire_Pin|read|D5G1;|5|0||||
+Awire|Read|D5G1;||1800|mileston@0|Read|3|0|pin@13||5|0
 Awire|clock|D5G1;||0|mileston@0|WL|-1|1|pin@4||-14|1
-Awire|clock_b|D5G1;||1800|pin@11||-21|3|mileston@0|Clk_B|-1|3
-Awire|en|D5G1;||0|mileston@0|EN|-1|-1|pin@5||-7|-1
+Awire|en|D5G1;||1800|pin@5||-7|-1|mileston@0|EN|-1|-1
 Awire|net@7|||900|VPulse@0|minus|-14|-4|pin@2||-14|-9
 Awire|net@8|||2700|gnd@0||-25|-10|pin@3||-25|-9
 Awire|net@9|||2700|pin@3||-25|-9|V_Generi@0|minus|-25|-6
-Awire|net@13|||900|pwr@0||-25|4|V_Generi@0|plus|-25|-2
 Awire|net@14|||2700|VPulse@0|plus|-14|0|pin@4||-14|1
 Awire|net@18|||900|pin@5||-7|-1|VPWL@0|plus|-7|-2
 Awire|net@20|||900|pin@6||-3|-3|VPWL@1|plus|-3|-4
@@ -749,7 +769,9 @@ Awire|net@27|||2700|VPulse@1|plus|-21|2|pin@11||-21|3
 Awire|net@29|||0|pin@2||-14|-9|pin@12||-21|-9
 Awire|net@30|||0|pin@12||-21|-9|pin@3||-25|-9
 Awire|net@31|||900|VPulse@1|minus|-21|-2|pin@12||-21|-9
-Awire|net@32|||1800|mileston@0|Read|3|0|read||5|0
+Awire|net@41|||900|pwr@0||-25|4|V_Generi@0|plus|-25|-2
+Awire|net@42|||0|mileston@0|Clk_B|-1|3|pin@19||-14|3
+Awire|net@43|||900|pin@19||-14|3|pin@4||-14|1
 Awire|wdata|D5G1;||0|mileston@0|Wdata|-1|-3|pin@6||-3|-3
 X
 
@@ -935,21 +957,21 @@ EOut||D5G2;X-2;|conn@3|y|O
 ESE||D5G2;X2;|conn@2|a|I
 X
 
-# Cell tri_state_buffer;1{ic}
-Ctri_state_buffer;1{ic}||artwork|1447978474993|1447979268804|E
+# Cell tri_state_inverter;1{ic}
+Ctri_state_inverter;1{ic}||artwork|1447978474993|1448146109762|E
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NOpened-Thicker-Polygon|art@1||0|0|4|4|||trace()V[-2/-2,-2/2,2/2,2/-2,-2/-2]
 Nschematic:Wire_Pin|pin@6||-2|1||||
 Nschematic:Wire_Pin|pin@7||-2|-1||||
 Nschematic:Wire_Pin|pin@8||2|0||||
-Ngeneric:Invisible-Pin|pin@9||0|0|||||ART_message(D5G1;)S[tri state,buffer]
+Ngeneric:Invisible-Pin|pin@9||0|0|||||ART_message(D5G1;)S[tri state,inverter]
 EEn||D5G2;|pin@6||I
 EOut||D5G2;|pin@8||O
 EVal|data|D5G2;|pin@7||I
 X
 
-# Cell tri_state_buffer;1{sch}
-Ctri_state_buffer;1{sch}||schematic|1447978206311|1447979229170|
+# Cell tri_state_inverter;1{sch}
+Ctri_state_inverter;1{sch}||schematic|1447978206311|1447979229170|
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NOff-Page|conn@0||-14|5||||
 NOff-Page|conn@1||-14|-12||||
@@ -1052,35 +1074,35 @@ Edata||D5G2;|pin@6||I
 X
 
 # Cell write_logic;1{sch}
-Cwrite_logic;1{sch}||schematic|1447978598219|1447978947182|
+Cwrite_logic;1{sch}||schematic|1447978598219|1448144944544|
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NOff-Page|conn@0||-18|-2||||
 NOff-Page|conn@1||-12|3|||R|
 NOff-Page|conn@2||5|3|||R|
-NOff-Page|conn@3||-7|-13|||R|
+NOff-Page|conn@3||0|-13|||R|
 NGround|gnd@0||-12|-13||||
 NTransistor|nmos@0||-14|-2|||R||ATTR_length(D5G0.5;X-0.5;Y-1;)S1|ATTR_width(D5G1;X0.5;Y-1;)S1
 NTransistor|nmos@1||-10|-7|||XR||ATTR_length(D5G0.5;X-0.5;Y-1;)S1|ATTR_width(D5G1;X0.5;Y-1;)S1
 NTransistor|nmos@2||3|-2|||R||ATTR_length(D5G0.5;X-0.5;Y-1;)S1|ATTR_width(D5G1;X0.5;Y-1;)S1
 NTransistor|nmos@3||3|-7|||R||ATTR_length(D5G0.5;X-0.5;Y-1;)S1|ATTR_width(D5G1;X0.5;Y-1;)S1
-IProject1:notBaseline;1{ic}|notBasel@0||-2|-7|||D5G4;
+IProject1:notBaseline;1{ic}|notBasel@0||-4|-7|X||D5G4;
 NWire_Pin|pin@0||5|-10||||
 NWire_Pin|pin@1||-12|-10||||
-NWire_Pin|pin@2||-7|-7||||
+NWire_Pin|pin@3||0|-7||||
 Awire|net@0|||0|nmos@2|g|2|-2|nmos@0|g|-15|-2
 Awire|net@1|||1800|conn@0|y|-16|-2|nmos@0|g|-15|-2
 Awire|net@2|||900|nmos@0|s|-12|-4|nmos@1|d|-12|-5
 Awire|net@3|||900|nmos@2|s|5|-4|nmos@3|d|5|-5
-Awire|net@4|||1800|notBasel@0|out|1|-7|nmos@3|g|2|-7
 Awire|net@9|||900|nmos@3|s|5|-9|pin@0||5|-10
 Awire|net@10|||2700|gnd@0||-12|-11|pin@1||-12|-10
 Awire|net@11|||2700|pin@1||-12|-10|nmos@1|s|-12|-9
 Awire|net@12|||0|pin@0||5|-10|pin@1||-12|-10
-Awire|net@13|||1800|nmos@1|g|-9|-7|pin@2||-7|-7
-Awire|net@14|||1800|pin@2||-7|-7|notBasel@0|in|-5|-7
-Awire|net@15|||2700|conn@3|y|-7|-11|pin@2||-7|-7
 Awire|net@16|||900|conn@1|a|-12|1|nmos@0|d|-12|0
 Awire|net@17|||900|conn@2|a|5|1|nmos@2|d|5|0
+Awire|net@18|||2700|conn@3|y|0|-11|pin@3||0|-7
+Awire|net@19|||1800|pin@3||0|-7|nmos@3|g|2|-7
+Awire|net@20|||0|nmos@3|g|2|-7|notBasel@0|in|-1|-7
+Awire|net@21|||0|notBasel@0|out|-7|-7|nmos@1|g|-9|-7
 EBL||D5G2;X-2;|conn@1|y|O
 EBL_B||D5G2;X2;|conn@2|a|O
 EWE_1|WE|D5G2;X2;|conn@0|a|I
