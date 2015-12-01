@@ -166,7 +166,7 @@ Ein||D5G2;|pin@0||I
 X
 
 # Cell clock_gen;1{sch}
-Cclock_gen;1{sch}||schematic|1447128559342|1448946494061|
+Cclock_gen;1{sch}||schematic|1447128559342|1449003260378|
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NOff-Page|conn@0||-28|10||||
 NOff-Page|conn@1||16|5|||X|
@@ -187,7 +187,6 @@ NWire_Pin|pin@11||-3|3||||
 NWire_Pin|pin@12||-3|4||||
 NWire_Pin|pin@15||-17|-1||||
 NWire_Pin|pin@16||-17|2||||
-NWire_Pin|pin@17||-8|2||||
 NWire_Pin|pin@19||-25|9||||
 NWire_Pin|pin@21||-25|-1||||
 NWire_Pin|pin@22||13|-13||||
@@ -195,7 +194,6 @@ Awire|a|D5G1;||1800|pin@4||-5|6|norBasel@0|x|2|6
 Awire|b|D5G1;||1800|pin@1||-6|-14|norBasel@1|y|2|-14
 Awire|net@0|||900|pin@0||-6|2|pin@1||-6|-14
 Awire|net@1|||1800|pin@8||-3|-12|norBasel@1|x|2|-12
-Awire|net@2|||0|pin@0||-6|2|pin@17||-8|2
 Awire|net@5|||1800|notBasel@0|out|-7|-1|pin@3||-5|-1
 Awire|net@6|||2700|pin@3||-5|-1|pin@4||-5|6
 Awire|net@7|||900|pin@5||12|5|pin@6||12|2
@@ -207,7 +205,6 @@ Awire|net@13|||1800|pin@12||-3|4|norBasel@0|y|2|4
 Awire|net@16|||1800|pin@15||-17|-1|notBasel@0|in|-13|-1
 Awire|net@17|||900|pin@16||-17|2|pin@15||-17|-1
 Awire|net@20|||0|conn@1|y|14|5|pin@5||12|5
-Awire|net@22|||1800|pin@16||-17|2|pin@17||-8|2
 Awire|net@23|||900|pin@19||-25|9|pin@21||-25|-1
 Awire|net@24|||0|pin@15||-17|-1|pin@21||-25|-1
 Awire|net@25|||1350|conn@0|y|-26|10|pin@19||-25|9
@@ -215,6 +212,7 @@ Awire|net@26|||1800|norBasel@1|out|6|-13|pin@22||13|-13
 Awire|net@27|||2700|pin@22||13|-13|pin@10||13|3
 Awire|net@28|||0|conn@2|y|15|-13|pin@22||13|-13
 Awire|net@29|||1800|norBasel@0|out|6|5|pin@5||12|5
+Awire|net@30|||0|pin@0||-6|2|pin@16||-17|2
 Ec||D5G2;|conn@1|a|O
 Ed||D5G2;|conn@2|a|O
 Ein||D5G2;X-4;|conn@0|y|I
@@ -234,7 +232,7 @@ Eout||D5G2;|pin@2||I
 X
 
 # Cell nand_latch;1{sch}
-Cnand_latch;1{sch}||schematic|1447109280516|1448947286122|
+Cnand_latch;1{sch}||schematic|1447109280516|1449003244576|
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NOff-Page|conn@0||21|1|||X|
 NOff-Page|conn@1||-27|16||||
@@ -248,12 +246,10 @@ NWire_Pin|pin@1||5|2||||
 NWire_Pin|pin@2||18|-5||||
 NWire_Pin|pin@3||18|1||||
 NWire_Pin|pin@5||4|0||||
-NWire_Pin|pin@6||-24|8||||
-NWire_Pin|pin@7||-11|8||||
-NWire_Pin|pin@8||-11|6||||
+NWire_Pin|pin@7||-12|8||||
+NWire_Pin|pin@8||-12|6||||
 NWire_Pin|pin@9||-17|-14||||
 NWire_Pin|pin@10||-17|8||||
-NWire_Pin|pin@11||-24|16||||
 NWire_Pin|pin@12||-11|16||||
 NWire_Pin|pin@13||-11|8||||
 NWire_Pin|pin@14||-11|-16||||
@@ -262,8 +258,8 @@ NWire_Pin|pin@16||-11|-8||||
 NWire_Pin|pin@17||17|-8||||
 NWire_Pin|pin@18||17|-5||||
 Awire|a|D5G1;||1800|notBasel@0|out|-8|-14|nandBase@1|x|-4|-14
-Awire|clock|D5G1;||1800|pin@6||-24|8|pin@10||-17|8
-Awire|in|D5G1;||1800|pin@11||-24|16|pin@12||-11|16
+Awire|clock|D5G1;||0|pin@10||-17|8|conn@2|y|-26|8
+Awire|in|D5G1;||0|pin@12||-11|16|conn@1|y|-25|16
 Awire|net@0|||1800|nandBase@0|out|0|7|pin@0||5|7
 Awire|net@1|||900|pin@0||5|7|pin@1||5|2
 Awire|net@2|||1800|pin@13||-11|8|nandBase@0|x|-4|8
@@ -275,18 +271,16 @@ Awire|net@7|||1800|pin@18||17|-5|pin@2||18|-5
 Awire|net@8|||1800|nandBase@2|out|14|1|pin@3||18|1
 Awire|net@9|||1800|pin@3||18|1|conn@0|y|19|1
 Awire|net@11|||2700|pin@15||4|-15|pin@5||4|0
-Awire|net@12|||900|pin@7||-11|8|pin@8||-11|6
+Awire|net@12|||900|pin@7||-12|8|pin@8||-12|6
 Awire|net@15|||1800|pin@5||4|0|nandBase@2|y|10|0
-Awire|net@16|||1800|pin@8||-11|6|nandBase@0|y|-4|6
+Awire|net@16|||1800|pin@8||-12|6|nandBase@0|y|-4|6
 Awire|net@17|||0|notBasel@0|in|-14|-14|pin@9||-17|-14
-Awire|net@18|||1800|pin@10||-17|8|pin@7||-11|8
+Awire|net@18|||1800|pin@10||-17|8|pin@7||-12|8
 Awire|net@19|||2700|pin@9||-17|-14|pin@10||-17|8
 Awire|net@20|||1800|pin@1||5|2|nandBase@2|x|10|2
 Awire|net@21|||900|pin@12||-11|16|pin@13||-11|8
 Awire|net@22|||1800|nandBase@1|out|0|-15|pin@15||4|-15
 Awire|net@24|||2700|pin@2||18|-5|pin@3||18|1
-Awire|net@25|||1800|conn@1|y|-25|16|pin@11||-24|16
-Awire|net@26|||1800|conn@2|y|-26|8|pin@6||-24|8
 Eclock||D5G2;|conn@2|a|I
 Ein||D5G2;|conn@1|a|I
 Eout||D5G2;|conn@0|a|I
