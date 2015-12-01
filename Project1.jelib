@@ -10,7 +10,8 @@ Vschematic|sch
 LspicepartsS3|spicepartsS3
 
 # Technologies:
-Tmocmos|ScaleFORmocmos()D22.0
+Tbicmos|ScaleFORbicmos()D22.0
+Tmocmos|MoCMOSAlternateActivePolyRules()BT|ScaleFORmocmos()D22.0|mocmosNumberOfMetalLayers()I3|mocmosSecondPolysilicon()BF
 
 # Cell 16bitRCABaselineTest;1{sch}
 C16bitRCABaselineTest;1{sch}||schematic|1445292221573|1447616970913|
@@ -1256,7 +1257,7 @@ Esum||D5G2;|pin@3||O
 X
 
 # Cell bitSliceTopologyChange;1{sch}
-CbitSliceTopologyChange;1{sch}||schematic|1445194104868|1447616876286|
+CbitSliceTopologyChange;1{sch}||schematic|1445194104868|1448947286122|
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NOff-Page|conn@0||-37|16||||
 NOff-Page|conn@1||-36|11||||
@@ -1287,59 +1288,59 @@ NWire_Pin|pin@49||-7|2||||
 NWire_Pin|pin@50||-25|11||||
 NWire_Pin|pin@51||-25|16||||
 NWire_Pin|pin@52||-15|13||||
-NWire_Pin|pin@53||-25|16||||
-NWire_Pin|pin@54||-25|11||||
-NWire_Pin|pin@55||-15|13||||
+NWire_Pin|pin@53||-6|16||||
+NWire_Pin|pin@54||-6|11||||
+NWire_Pin|pin@55||-2|13||||
 NWire_Pin|pin@56||-5|3||||
 NWire_Pin|pin@57||-5|8||||
 NWire_Pin|pin@58||5|5||||
-NWire_Pin|pin@59||-5|8||||
-NWire_Pin|pin@60||-5|3||||
-NWire_Pin|pin@61||5|5||||
+NWire_Pin|pin@59||14|8||||
+NWire_Pin|pin@60||14|3||||
+NWire_Pin|pin@61||18|5||||
 IxorPass;1{ic}|xorPass@0||-4|1|||D5G4;
 IxorPass;1{ic}|xorPass@1||16|-7|||D5G4;
 Awire|cout|D5G1;||0|conn@4|y|43|21|pin@30||36|21
 Awire|net@6|||900|pin@2||-9|13|pin@3||-9|8
-Awire|net@80|||1800|nandBase@0|out|4|45|pin@36||9|45
+Awire|net@80|||1800|nandBase@0|out|3|45|pin@36||9|45
 Awire|net@81|||900|pin@36||9|45|pin@37||9|39
-Awire|net@83|||1800|nandBase@1|out|4|31|pin@38||9|31
+Awire|net@83|||1800|nandBase@1|out|3|31|pin@38||9|31
 Awire|net@84|||2700|pin@38||9|31|pin@39||9|37
-Awire|net@86|||1800|nandBase@2|out|21|38|pin@40||32|38
+Awire|net@86|||1800|nandBase@2|out|20|38|pin@40||32|38
 Awire|net@87|||900|pin@40||32|38|pin@41||32|21
 Awire|net@88|||0|pin@30||36|21|pin@41||32|21
-Awire|net@91|||0|nandBase@0|x|-2|46|pin@42||-32|46
+Awire|net@91|||0|nandBase@0|x|-1|46|pin@42||-32|46
 Awire|net@92|||1800|conn@0|y|-35|16|pin@43||-32|16
 Awire|net@94|||900|pin@42||-32|46|pin@43||-32|16
-Awire|net@95|||0|nandBase@0|y|-2|44|pin@44||-27|44
+Awire|net@95|||0|nandBase@0|y|-1|44|pin@44||-27|44
 Awire|net@96|||1800|conn@1|y|-34|11|pin@45||-27|11
 Awire|net@98|||900|pin@44||-27|44|pin@45||-27|11
-Awire|net@100|||0|nandBase@1|x|-2|32|pin@46||-10|32
+Awire|net@100|||0|nandBase@1|x|-1|32|pin@46||-10|32
 Awire|net@102|||1800|pin@47||-10|13|pin@2||-9|13
 Awire|net@103|||900|pin@46||-10|32|pin@47||-10|13
-Awire|net@104|||0|nandBase@1|y|-2|30|pin@48||-7|30
+Awire|net@104|||0|nandBase@1|y|-1|30|pin@48||-7|30
 Awire|net@105|||1800|conn@2|y|-34|2|pin@49||-7|2
 Awire|net@106|||1800|pin@49||-7|2|pin@1||-5|2
 Awire|net@107|||900|pin@48||-7|30|pin@49||-7|2
-Awire|net@108|||1800|pin@39||9|37|nandBase@2|y|15|37
-Awire|net@109|||1800|pin@37||9|39|nandBase@2|x|15|39
+Awire|net@108|||1800|pin@39||9|37|nandBase@2|y|16|37
+Awire|net@109|||1800|pin@37||9|39|nandBase@2|x|16|39
 Awire|net@110|||1800|pin@45||-27|11|pin@50||-25|11
 Awire|net@111|||1800|pin@43||-32|16|pin@51||-25|16
-Awire|net@113|||1800|pin@51||-25|16|pin@53||-25|16
-Awire|net@114|||900|xorPass@0|x|-25|16|pin@53||-25|16
-Awire|net@115|||1800|pin@50||-25|11|pin@54||-25|11
-Awire|net@116|||900|xorPass@0|y|-25|11|pin@54||-25|11
-Awire|net@117|||0|pin@47||-10|13|pin@55||-15|13
-Awire|net@118|||0|pin@55||-15|13|pin@52||-15|13
-Awire|net@119|||900|xorPass@0|out|-15|13|pin@55||-15|13
+Awire|net@113|||1800|pin@51||-25|16|pin@53||-6|16
+Awire|net@114|||2700|xorPass@0|x|-6|2|pin@53||-6|16
+Awire|net@115|||1800|pin@50||-25|11|pin@54||-6|11
+Awire|net@116|||2700|xorPass@0|y|-6|0|pin@54||-6|11
+Awire|net@117|||1800|pin@47||-10|13|pin@55||-2|13
+Awire|net@118|||0|pin@55||-2|13|pin@52||-15|13
+Awire|net@119|||2700|xorPass@0|out|-2|1|pin@55||-2|13
 Awire|net@120|||2700|pin@1||-5|2|pin@56||-5|3
 Awire|net@121|||1800|pin@3||-9|8|pin@57||-5|8
-Awire|net@123|||0|pin@57||-5|8|pin@59||-5|8
-Awire|net@124|||2700|xorPass@1|x|-5|8|pin@59||-5|8
-Awire|net@125|||0|pin@56||-5|3|pin@60||-5|3
-Awire|net@126|||2700|xorPass@1|y|-5|3|pin@60||-5|3
-Awire|net@127|||0|conn@3|y|27|5|pin@61||5|5
-Awire|net@128|||1800|pin@61||5|5|pin@58||5|5
-Awire|net@129|||2700|xorPass@1|out|5|5|pin@61||5|5
+Awire|net@123|||1800|pin@57||-5|8|pin@59||14|8
+Awire|net@124|||2700|xorPass@1|x|14|-6|pin@59||14|8
+Awire|net@125|||1800|pin@56||-5|3|pin@60||14|3
+Awire|net@126|||2700|xorPass@1|y|14|-8|pin@60||14|3
+Awire|net@127|||0|conn@3|y|27|5|pin@61||18|5
+Awire|net@128|||0|pin@61||18|5|pin@58||5|5
+Awire|net@129|||2700|xorPass@1|out|18|-7|pin@61||18|5
 Ea||D5G2;X-4;|conn@0|y|I
 Eb||D5G2;X-4;|conn@1|y|I
 Ecin||D5G2;X-4;|conn@2|y|I
@@ -1490,13 +1491,13 @@ Awire|net@44|||1800|gnd@2||6|-4|pin@20||18|-4
 X
 
 # Cell nandBaseline;1{ic}
-CnandBaseline;1{ic}||artwork|1445705980286|1447616880678|E
+CnandBaseline;1{ic}||artwork|1445705980286|1448947286122|E
 Ngeneric:Facet-Center|art@0||0|0||||AV
-NBox|art@1||0|0|6|6||
-Nschematic:Wire_Pin|pin@2||3|0||||
+NBox|art@1||0|0|4|4||
+Nschematic:Wire_Pin|pin@2||2|0||||
 Ngeneric:Invisible-Pin|pin@3||0|0|||||ART_message(D5G1;)Snand
-Nschematic:Wire_Pin|pin@4||-3|1||||
-Nschematic:Wire_Pin|pin@5||-3|-1||||
+Nschematic:Wire_Pin|pin@4||-2|1||||
+Nschematic:Wire_Pin|pin@5||-2|-1||||
 Eout||D5G2;|pin@2||O
 Ex||D5G2;|pin@4||I
 Ey||D5G2;|pin@5||I
@@ -1560,20 +1561,20 @@ Ey||D5G2;|conn@1|a|I
 X
 
 # Cell norBaseline;1{ic}
-CnorBaseline;1{ic}||artwork|1446915630180|1447129540651|E
+CnorBaseline;1{ic}||artwork|1446915630180|1448946494061|E
 Ngeneric:Facet-Center|art@0||0|0||||AV
-NBox|art@1||-1|6|10|10||
-Nschematic:Wire_Pin|pin@0||-6|8||||
-Nschematic:Wire_Pin|pin@1||-6|4||||
-Nschematic:Wire_Pin|pin@2||4|6||||
-Ngeneric:Invisible-Pin|pin@3||-1|6|||||ART_message(D5G1;)Snor
+NBox|art@1||0|0|4|4||
+Nschematic:Wire_Pin|pin@0||-2|1||||
+Nschematic:Wire_Pin|pin@1||-2|-1||||
+Nschematic:Wire_Pin|pin@2||2|0||||
+Ngeneric:Invisible-Pin|pin@3||0|0|||||ART_message(D5G1;)Snor
 Eout||D5G2;|pin@2||O
 Ex||D5G2;|pin@0||I
 Ey||D5G2;|pin@1||I
 X
 
 # Cell norBaseline;1{sch}
-CnorBaseline;1{sch}||schematic|1446915390967|1446915523677|
+CnorBaseline;1{sch}||schematic|1446915390967|1448948555866|
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NOff-Page|conn@0||-17|10||||
 NOff-Page|conn@1||-17|4||||
@@ -1581,7 +1582,6 @@ NOff-Page|conn@2||9|5|||X|
 NGround|gnd@0||-16|-8||||
 NTransistor|nmos@0||-7|2|||R||ATTR_length(D5G0.5;X-0.5;Y-1;)S1|ATTR_width(D5G1;X0.5;Y-1;)S1
 NTransistor|nmos@1||2|2|||R||ATTR_length(D5G0.5;X-0.5;Y-1;)S1|ATTR_width(D5G1;X0.5;Y-1;)S1
-NWire_Pin|pin@2||6|5||||
 NWire_Pin|pin@3||0|5||||
 NWire_Pin|pin@4||-5|-6||||
 NWire_Pin|pin@5||4|-6||||
@@ -1604,7 +1604,6 @@ Awire|net@5|||0|nmos@1|d|4|4|pin@13||0|4
 Awire|net@6|||0|pin@13||0|4|nmos@0|d|-5|4
 Awire|net@7|||900|pmos@1|s|0|8|pin@3||0|5
 Awire|net@8|||900|pin@3||0|5|pin@13||0|4
-Awire|net@9|||0|pin@2||6|5|pin@3||0|5
 Awire|net@10|||2700|pmos@1|d|0|12|pmos@0|s|0|14
 Awire|net@11|||1800|gnd@0||-16|-6|pin@4||-5|-6
 Awire|net@12|||0|pin@7||-1|-3|pin@8||-15|-3
@@ -1618,7 +1617,7 @@ Awire|net@20|||1800|pin@10||-13|16|pmos@0|g|-3|16
 Awire|net@21|||1800|conn@0|y|-15|10|pin@11||-8|10
 Awire|net@22|||1800|pin@11||-8|10|pmos@1|g|-3|10
 Awire|net@23|||2700|nmos@0|g|-8|2|pin@11||-8|10
-Awire|net@24|||1800|pin@2||6|5|conn@2|y|7|5
+Awire|net@25|||1800|pin@3||0|5|conn@2|y|7|5
 Eout||D5G2;|conn@2|a|O
 Ex||D5G2;|conn@0|a|I
 Ey||D5G2;|conn@1|a|I
@@ -1870,34 +1869,33 @@ Ey||D5G2;|conn@1|a|I
 X
 
 # Cell xorPass;1{ic}
-CxorPass;1{ic}||artwork|1445193506982|1445892394294|E
+CxorPass;1{ic}||artwork|1445193506982|1448946370624|E
 Ngeneric:Facet-Center|art@0||0|0||||AV
-NBox|art@1||-16|12|10|10||
-Nschematic:Wire_Pin|pin@0||-21|15||||
-Ngeneric:Invisible-Pin|pin@1||-16|12|||||ART_message(D5G1;)SXOR
-Nschematic:Wire_Pin|pin@2||-21|10||||
-Nschematic:Wire_Pin|pin@4||-11|12||||
+NBox|art@1||0|0|4|4||
+Nschematic:Wire_Pin|pin@0||-2|1||||
+Ngeneric:Invisible-Pin|pin@1||0|0|||||ART_message(D5G1;)SXOR
+Nschematic:Wire_Pin|pin@2||-2|-1||||
+Nschematic:Wire_Pin|pin@4||2|0||||
 Eout||D5G2;|pin@4||O
 Ex||D5G2;|pin@0||I
 Ey||D5G2;|pin@2||I
 X
 
 # Cell xorPass;1{sch}
-CxorPass;1{sch}||schematic|1445191207391|1445888643711|
+CxorPass;1{sch}||schematic|1445191207391|1448948604325|
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NOff-Page|conn@0||-30|14||||
 NOff-Page|conn@1||-30|-1||||
 NOff-Page|conn@2||14|7|||X|
 NGround|gnd@0||-37|-14||||
 NTransistor|nmos@1||-21|-4|||R||ATTR_length(D5G0.5;X-0.5;Y-1;)S1|ATTR_width(D5G1;X0.5;Y-1;)S1
-NTransistor|nmos@2||-4|10|||||ATTR_length(D5G0.5;X-0.5;Y-1;)S1.0|ATTR_width(D5G1;X0.5;Y-1;)S1.0
-NTransistor|nmos@3||-4|5|||RR||ATTR_length(D5G0.5;X-0.5;Y-1;)S1.0|ATTR_width(D5G1;X0.5;Y-1;)S1.0
+NTransistor|nmos@2||-4|10|||||ATTR_length(D5G0.5;X-0.5;Y-1;)S1|ATTR_width(D5G1;X0.5;Y-1;)S1
+NTransistor|nmos@3||-4|5|||RR||ATTR_length(D5G0.5;X-0.5;Y-1;)S1|ATTR_width(D5G1;X0.5;Y-1;)S1
 NTransistor|nmos@4||-17|10|||R||ATTR_length(D5G0.5;X-0.5;Y-1;)S1|ATTR_width(D5G1;X0.5;Y-1;)S1
 NTransistor|nmos@5||5|5|||R||ATTR_length(D5G0.5;X-0.5;Y-1;)S1|ATTR_width(D5G1;X0.5;Y-1;)S1
 NWire_Pin|pin@7||-19|-12||||
 NWire_Pin|pin@10||-28|2||||
 NWire_Pin|pin@11||-28|-4||||
-NWire_Pin|pin@58||-18|-12||||
 NWire_Pin|pin@59||-19|24||||
 NWire_Pin|pin@61||-24|10||||
 NWire_Pin|pin@62||-24|14||||
@@ -1920,9 +1918,8 @@ NWire_Pin|pin@80||1|11||||
 NWire_Pin|pin@81||1|5||||
 NWire_Pin|pin@82||7|24||||
 NWire_Pin|pin@83||-15|24||||
-NWire_Pin|pin@84||7|-7||||
-NWire_Pin|pin@85||-4|-7||||
 NWire_Pin|pin@86||-15|24||||
+NWire_Pin|pin@87||7|-12||||
 NTransistor|pmos@1||-21|2|||R|2|ATTR_length(D5G0.5;X-0.5;Y-1;)S1|ATTR_width(D5G1;X0.5;Y-1;)S1
 NTransistor|pmos@2||-17|16|||R|2|ATTR_length(D5G0.5;X-0.5;Y-1;)S1|ATTR_width(D5G1;X0.5;Y-1;)S1
 NTransistor|pmos@3||5|11|||R|2|ATTR_length(D5G0.5;X-0.5;Y-1;)S1|ATTR_width(D5G1;X0.5;Y-1;)S1
@@ -1932,7 +1929,6 @@ Awire|net@22|||2700|conn@1|y|-28|-1|pin@10||-28|2
 Awire|net@24|||900|conn@1|y|-28|-1|pin@11||-28|-4
 Awire|net@25|||0|nmos@1|g|-22|-4|pin@11||-28|-4
 Awire|net@33|||900|nmos@1|s|-19|-6|pin@7||-19|-12
-Awire|net@122|||1800|pin@7||-19|-12|pin@58||-18|-12
 Awire|net@129|||2700|pmos@1|d|-19|4|pin@59||-19|24
 Awire|net@130|||900|pmos@2|s|-15|14|nmos@4|d|-15|12
 Awire|net@133|||1800|conn@0|y|-28|14|pin@62||-24|14
@@ -1954,7 +1950,6 @@ Awire|net@151|||900|pin@70||-11|8|pin@71||-11|-1
 Awire|net@152|||900|pmos@1|s|-19|0|pin@72||-19|-1
 Awire|net@153|||900|pin@72||-19|-1|nmos@1|d|-19|-2
 Awire|net@154|||0|pin@71||-11|-1|pin@72||-19|-1
-Awire|net@155|||900|nmos@3|g|-4|4|pin@73||-4|-7
 Awire|net@158|||0|nmos@3|d|-6|7|pin@75||-26|7
 Awire|net@159|||1800|pin@10||-28|2|pin@76||-26|2
 Awire|net@160|||1800|pin@76||-26|2|pmos@1|g|-22|2
@@ -1971,11 +1966,12 @@ Awire|net@170|||900|pin@79||1|8|pin@81||1|5
 Awire|net@171|||1800|pin@81||1|5|nmos@5|g|4|5
 Awire|net@172|||2700|pmos@3|d|7|13|pin@82||7|24
 Awire|net@173|||0|pin@82||7|24|pin@83||-15|24
-Awire|net@174|||900|nmos@5|s|7|3|pin@84||7|-7
-Awire|net@175|||0|pin@84||7|-7|pin@85||-4|-7
 Awire|net@176|||2700|pmos@2|d|-15|18|pin@83||-15|24
 Awire|net@177|||2700|pmos@2|d|-15|18|pin@86||-15|24
 Awire|net@178|||0|pin@86||-15|24|pin@59||-19|24
+Awire|net@179|||900|nmos@3|g|-4|4|pin@73||-4|-7
+Awire|net@180|||900|nmos@5|s|7|3|pin@87||7|-12
+Awire|net@181|||0|pin@87||7|-12|pin@65||-15|-12
 Eout||D5G2;|conn@2|a|O
 Ex||D5G2;X-4;|conn@0|y|I
 Ey||D5G2;|conn@1|a|I
