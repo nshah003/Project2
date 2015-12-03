@@ -1,0 +1,73 @@
+*** SPICE deck for cell word_cell_test{sch} from library Project2
+*** Created on Thu Dec 03, 2015 14:16:18
+*** Last revised on Thu Dec 03, 2015 15:04:15
+*** Written on Thu Dec 03, 2015 15:05:00 by Electric VLSI Design System, version 9.06
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+* Model cards are described in this file:
+.include /Users/neilnshah/Desktop/JUNIOR-YEAR/Fall15/Courses/ESE370/Project2/Project2/22nm_HP.pm
+
+*** SUBCIRCUIT Project2__precharge FROM CELL precharge{sch}
+.SUBCKT Project2__precharge BL BL_B Clk_B
+** GLOBAL vdd
+Mpmos@0 vdd Clk_B BL_B vdd P L=0.022U W=0.022U
+Mpmos@1 vdd Clk_B BL vdd P L=0.022U W=0.022U
+.ENDS Project2__precharge
+
+*** SUBCIRCUIT Project2__precharge_word FROM CELL precharge_word{sch}
+.SUBCKT Project2__precharge_word BL1 BL2 BL3 BL4 BLB1 BLB2 BLB3 BLB4 Clk
+** GLOBAL vdd
+Xprecharg@0 BL1 BLB1 Clk Project2__precharge
+Xprecharg@1 BL2 BLB2 Clk Project2__precharge
+Xprecharg@2 BL3 BLB3 Clk Project2__precharge
+Xprecharg@3 BL4 BLB4 Clk Project2__precharge
+.ENDS Project2__precharge_word
+
+*** SUBCIRCUIT Project2__vwide_not FROM CELL vwide_not{sch}
+.SUBCKT Project2__vwide_not A O
+** GLOBAL gnd
+** GLOBAL vdd
+Mnmos@0 O A gnd gnd N L=0.022U W=0.22U
+Mpmos@0 vdd A O vdd P L=0.022U W=0.22U
+.ENDS Project2__vwide_not
+
+*** SUBCIRCUIT Project2__6TSRAM FROM CELL 6TSRAM{sch}
+.SUBCKT Project2__6TSRAM BL BL_B R_WL W_WL
+** GLOBAL gnd
+** GLOBAL vdd
+Mnmos@0 net@2 W_WL BL gnd N L=0.022U W=0.22U
+Mnmos@1 BL_B R_WL net@5 gnd N L=0.022U W=0.022U
+Mnmos@2 net@5 net@2 gnd gnd N L=0.022U W=0.22U
+Mnmos@3 net@2 net@5 gnd gnd N L=0.022U W=0.022U
+Mpmos@0 vdd net@2 net@5 vdd P L=0.022U W=0.22U
+Mpmos@1 vdd net@5 net@2 vdd P L=0.022U W=0.022U
+.ENDS Project2__6TSRAM
+
+*** SUBCIRCUIT Project2__word_cell FROM CELL word_cell{sch}
+.SUBCKT Project2__word_cell BL1_i BL2_i BL3_i BL4_i BLB1_i BLB2_i BLB3_i BLB4_i R_WL W_WL
+** GLOBAL gnd
+** GLOBAL vdd
+X_6TSRAM@0 BL1_i BLB1_i R_WL W_WL Project2__6TSRAM
+X_6TSRAM@1 BL2_i BLB2_i R_WL W_WL Project2__6TSRAM
+X_6TSRAM@2 BL3_i BLB3_i R_WL W_WL Project2__6TSRAM
+X_6TSRAM@3 BL4_i BLB4_i R_WL W_WL Project2__6TSRAM
+.ENDS Project2__word_cell
+
+.global gnd vdd
+
+*** TOP LEVEL CELL: word_cell_test{sch}
+VVPWL@0 RWL gnd pwl (0ns 0V 1.8ns 0V 1.9ns 1V 3.6ns 1V 3.7ns 0V 5.8ns 0V 5.9ns 1V 7.6ns 1V 7.7ns 0V) DC 0V AC 0V 0
+VVPWL@1 WWL gnd pwl (0ns 0V 0.8ns 0V 0.9ns 1V 1.6ns 1V 1.7ns 0V 3.8ns 0V 3.9ns 1V 5.6ns 1V 5.7ns 0V) DC 0V AC 0V 0
+VVPWL@2 W1  gnd pwl (0ns 0V 0.8ns 0V 0.9ns 1V 1.6ns 1V 1.7ns 0V 4.8ns 0V 4.9ns 1V 5.6ns 1V 5.7ns 0V) DC 0V AC 0V 0
+VVPWL@3 W2  gnd pwl (0ns 0V 0.8ns 0V 0.9ns 1V 1.6ns 1V 1.7ns 0V 4.8ns 0V 4.9ns 1V 5.6ns 1V 5.7ns 0V) DC 0V AC 0V 0
+VVPWL@4 W3  gnd pwl (0ns 0V 0.8ns 0V 0.9ns 1V 1.6ns 1V 1.7ns 0V 3.8ns 0V 3.9ns 1V 4.6ns 1V 4.7ns 0V) DC 0V AC 0V 0
+VVPWL@5 W4  gnd pwl (0ns 0V 0.8ns 0V 0.9ns 1V 1.6ns 1V 1.7ns 0V 3.8ns 0V 3.9ns 1V 4.6ns 1V 4.7ns 0V) DC 0V AC 0V 0
+VVPulse@0 Clk gnd pulse (0 1V 0ns 0ps 0ps .5ns 1ns) DC 0V AC 0V 0
+VV_Generi@0 vdd gnd DC 1 AC 0
+Xprecharg@0 W1 W2 W3 W4 net@53 net@59 net@76 net@79 Clk Project2__precharge_word
+Xvwide_no@0 net@53 R1 Project2__vwide_not
+Xvwide_no@1 net@59 R2 Project2__vwide_not
+Xvwide_no@2 net@76 R3 Project2__vwide_not
+Xvwide_no@3 net@79 R4 Project2__vwide_not
+Xword_cel@1 W1 W2 W3 W4 net@53 net@59 net@76 net@79 RWL WWL Project2__word_cell
+.END

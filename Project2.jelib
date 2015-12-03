@@ -3121,7 +3121,7 @@ EWL|W_WL|D5G2;|conn@0|a|I
 X
 
 # Cell word_cell_test;1{sch}
-Cword_cell_test;1{sch}||schematic|1449170178035|1449170725227|
+Cword_cell_test;1{sch}||schematic|1449170178035|1449173055297|
 IspicepartsS3:VPWL;1{ic}|VPWL@0||-24|-8|||D5G4;|ATTR_ACM(D6G0.5;NPX0.5;Y-12;)S0V|ATTR_ACP(D6G0.5;NPX0.5;Y-12.5;)I0|ATTR_VDC(D6G0.5;NPX0.5;Y-13;)S0V|ATTR_pwl(D6G0.5;NPX-5.5;Y-15;)S0ns 0V .8ns 0V .9ns 1V 8.6ns 1V 8.7ns 0V
 IspicepartsS3:VPWL;1{ic}|VPWL@1||-20|-10|||D5G4;|ATTR_ACM(D6G0.5;NPX0.5;Y-10;)S0V|ATTR_ACP(D6G0.5;NPX0.5;Y-10.5;)I0|ATTR_VDC(D6G0.5;NPX0.5;Y-11;)S0V|ATTR_pwl(D6G0.5;NPX-9.5;Y-13.5;)S0ns 0V 8.8ns 0V 8.9ns 1V 16.6ns 1V 16.7ns 0V
 IspicepartsS3:VPWL;1{ic}|VPWL@2||-16|-12|||D5G4;|ATTR_ACM(D6G0.5;NPX0.5;Y-8;)S0V|ATTR_ACP(D6G0.5;NPX0.5;Y-8.5;)I0|ATTR_VDC(D6G0.5;NPX0.5;Y-9;)S0V|ATTR_pwl(D6G0.5;NPX-13.5;Y-12;)S0ns 0V 7.8ns 0V 7.9ns 1V 8.6ns 1V 8.7ns 0V
@@ -3158,10 +3158,42 @@ NWire_Pin|pin@65||21|14||||
 NWire_Pin|pin@66||-28|-20||||
 NWire_Pin|pin@67||-28|24||||
 NWire_Pin|pin@68||18|24||||
+NWire_Pin|pin@71||20|2||||
+NWire_Pin|pin@72||22|2||||
+NWire_Pin|pin@73||24|2||||
+NWire_Pin|pin@74||26|2||||
+NWire_Pin|pin@75||20|-14||||
+NWire_Pin|pin@76||22|-14||||
+NWire_Pin|pin@77||24|-14||||
+NWire_Pin|pin@78||26|-14||||
+NWire_Pin|pin@79||-24|9||||
+NWire_Pin|pin@80||-20|7||||
+NWire_Pin|pin@81||10|3||||
+NWire_Pin|pin@82||-16|3||||
+NWire_Pin|pin@83||12|1||||
+NWire_Pin|pin@84||-12|1||||
+NWire_Pin|pin@85||14|-1||||
+NWire_Pin|pin@86||-8|-1||||
+NWire_Pin|pin@87||16|-3||||
+NWire_Pin|pin@88||-4|-3||||
 Iprecharge_word;1{ic}|precharg@0||17|20|||D5G4;
 NPower|pwr@0||-32|-1||||
+Ivwide_not;1{ic}|vwide_no@0||20|-2|RRR||D5G4;
+Ivwide_not;1{ic}|vwide_no@1||22|-9|RRR||D5G4;
+Ivwide_not;1{ic}|vwide_no@2||24|-2|RRR||D5G4;
+Ivwide_not;1{ic}|vwide_no@3||26|-9|RRR||D5G4;
 Iword_cell;1{ic}|word_cel@1||18|8|||D5G4;
 Awire|Clk|D5G1;||1800|pin@67||-28|24|pin@68||18|24
+Awire|R1|D5G1;||900|vwide_no@0|O|20|-5|pin@75||20|-14
+Awire|R2|D5G1;||900|vwide_no@1|O|22|-12|pin@76||22|-14
+Awire|R3|D5G1;||900|vwide_no@2|O|24|-5|pin@77||24|-14
+Awire|R4|D5G1;||900|vwide_no@3|O|26|-12|pin@78||26|-14
+Awire|RWL|D5G1;||0|word_cel@1|R_WL|9|9|pin@79||-24|9
+Awire|W1|D5G1;||0|pin@81||10|3|pin@82||-16|3
+Awire|W2|D5G1;||0|pin@83||12|1|pin@84||-12|1
+Awire|W3|D5G1;||0|pin@85||14|-1|pin@86||-8|-1
+Awire|W4|D5G1;||0|pin@87||16|-3|pin@88||-4|-3
+Awire|WWL|D5G1;||0|word_cel@1|WL|9|7|pin@80||-20|7
 Awire|net@0|||2700|pin@7||-32|-20|V_Generi@0|minus|-32|-9
 Awire|net@2|||0|pin@13||-8|-20|pin@14||-12|-20
 Awire|net@3|||900|VPWL@3|minus|-12|-14|pin@14||-12|-20
@@ -3205,6 +3237,24 @@ Awire|net@82|||900|VPulse@0|minus|-28|-13|pin@66||-28|-20
 Awire|net@83|||2700|VPulse@0|plus|-28|-9|pin@67||-28|24
 Awire|net@85|||900|pin@68||18|24|precharg@0|Clk|18|22
 Awire|net@87|||2700|word_cel@1|BL2_i|12|11|pin@55||12|17
+Awire|net@90|||900|word_cel@1|BLB1_o|20|5|pin@71||20|2
+Awire|net@91|||900|word_cel@1|BLB2_o|22|5|pin@72||22|2
+Awire|net@92|||900|word_cel@1|BLB3_o|24|5|pin@73||24|2
+Awire|net@93|||900|word_cel@1|BLB4_o|26|5|pin@74||26|2
+Awire|net@94|||900|pin@71||20|2|vwide_no@0|A|20|1
+Awire|net@95|||900|pin@72||22|2|vwide_no@1|A|22|-6
+Awire|net@96|||900|pin@73||24|2|vwide_no@2|A|24|1
+Awire|net@97|||900|pin@74||26|2|vwide_no@3|A|26|-6
+Awire|net@99|||900|pin@79||-24|9|VPWL@0|plus|-24|-4
+Awire|net@101|||900|pin@80||-20|7|VPWL@1|plus|-20|-6
+Awire|net@102|||900|word_cel@1|BL1_o|10|5|pin@81||10|3
+Awire|net@104|||900|pin@82||-16|3|VPWL@2|plus|-16|-8
+Awire|net@105|||900|word_cel@1|BL2_o|12|5|pin@83||12|1
+Awire|net@107|||900|pin@84||-12|1|VPWL@3|plus|-12|-10
+Awire|net@108|||900|word_cel@1|BL3_o|14|5|pin@85||14|-1
+Awire|net@110|||900|pin@86||-8|-1|VPWL@4|plus|-8|-12
+Awire|net@111|||900|word_cel@1|BL4_o|16|5|pin@87||16|-3
+Awire|net@113|||900|pin@88||-4|-3|VPWL@5|plus|-4|-14
 X
 
 # Cell write_logic;1{ic}
