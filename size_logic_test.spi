@@ -1,7 +1,7 @@
 *** SPICE deck for cell size_logic_test{sch} from library Project2
 *** Created on Wed Dec 02, 2015 23:12:26
 *** Last revised on Thu Dec 03, 2015 03:03:46
-*** Written on Thu Dec 03, 2015 03:04:46 by Electric VLSI Design System, version 9.06
+*** Written on Thu Dec 03, 2015 13:44:14 by Electric VLSI Design System, version 9.06
 *** Layout tech: mocmos, foundry MOSIS
 *** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
 * Model cards are described in this file:
@@ -81,14 +81,14 @@ Mpmos@0 vdd in out vdd P L=0.022U W=0.022U
 ** GLOBAL gnd
 ** GLOBAL vdd
 Xand3@0 C_next B_next A_next Full Project2__and3
-Xfull_add@0 C net@168 gnd net@158 C_next Project2__full_adder
-Xfull_add@1 B net@168 net@158 net@163 B_next Project2__full_adder
-Xfull_add@2 A net@187 net@163 full_add@2_Cout A_next Project2__full_adder
+Xfull_add@0 C net@249 gnd net@158 C_next Project2__full_adder
+Xfull_add@1 B net@245 net@158 net@163 B_next Project2__full_adder
+Xfull_add@2 A net@245 net@163 full_add@2_Cout A_next Project2__full_adder
 XnandBase@0 net@198 D net@199 Project1__nandBaseline
 Xnor3@0 C_next B_next A_next Empty Project2__nor3
-XnotBasel@3 net@198 net@168 Project1__notBaseline
+XnotBasel@3 net@198 net@245 Project1__notBaseline
 XnotBasel@4 E net@199 Project1__notBaseline
-XxorPass@0 net@187 D E Project1__xorPass
+XxorPass@0 net@249 D E Project1__xorPass
 .ENDS Project2__size_logic
 
 .global gnd vdd
