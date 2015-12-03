@@ -1,7 +1,7 @@
-*** SPICE deck for cell enq_logic_test{sch} from library Project2
-*** Created on Wed Dec 02, 2015 22:58:23
-*** Last revised on Wed Dec 02, 2015 22:59:59
-*** Written on Wed Dec 02, 2015 23:10:14 by Electric VLSI Design System, version 9.06
+*** SPICE deck for cell size_logic_test{sch} from library Project2
+*** Created on Wed Dec 02, 2015 23:12:26
+*** Last revised on Wed Dec 02, 2015 23:14:52
+*** Written on Wed Dec 02, 2015 23:15:25 by Electric VLSI Design System, version 9.06
 *** Layout tech: mocmos, foundry MOSIS
 *** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
 * Model cards are described in this file:
@@ -42,22 +42,44 @@ XxorPass@0 net@17 B A Project1__xorPass
 XxorPass@1 S Cin net@17 Project1__xorPass
 .ENDS Project2__full_adder
 
-*** SUBCIRCUIT Project2__enq_logic FROM CELL enq_logic{sch}
-.SUBCKT Project2__enq_logic A A_next B B_next C C_next E
+*** SUBCIRCUIT Project1__notBaseline FROM CELL Project1:notBaseline{sch}
+.SUBCKT Project1__notBaseline in out
 ** GLOBAL gnd
 ** GLOBAL vdd
-Xfull_add@0 B E net@151 net@146 B_next Project2__full_adder
-Xfull_add@1 C E gnd net@151 C_next Project2__full_adder
-Xfull_add@2 A E net@146 full_add@2_Cout A_next Project2__full_adder
-.ENDS Project2__enq_logic
+Mnmos@0 out in gnd gnd N L=0.022U W=0.022U
+Mpmos@0 vdd in out vdd P L=0.022U W=0.022U
+.ENDS Project1__notBaseline
+
+*** SUBCIRCUIT Project2__size_logic FROM CELL size_logic{sch}
+.SUBCKT Project2__size_logic A A_next B B_next C C_next D E Empty Full
+** GLOBAL gnd
+** GLOBAL vdd
+Mnmos@0 Empty vdd gnd gnd N L=0.022U W=0.022U
+Mnmos@1 net@129 A_next gnd gnd N L=0.022U W=0.132U
+Mnmos@2 net@128 B_next net@129 gnd N L=0.022U W=0.132U
+Mnmos@3 net@142 C_next net@128 gnd N L=0.022U W=0.132U
+Mpmos@0 vdd C_next net@96 vdd P L=0.022U W=0.132U
+Mpmos@1 net@96 B_next net@97 vdd P L=0.022U W=0.132U
+Mpmos@2 net@97 A_next Empty vdd P L=0.022U W=0.132U
+Mpmos@3 vdd gnd net@142 vdd P L=0.022U W=0.022U
+Xfull_add@0 C net@168 gnd net@158 C_next Project2__full_adder
+Xfull_add@1 B net@168 net@158 net@163 B_next Project2__full_adder
+Xfull_add@2 A net@187 net@163 full_add@2_Cout A_next Project2__full_adder
+XnandBase@0 net@198 D net@199 Project1__nandBaseline
+XnotBasel@2 net@142 Full Project1__notBaseline
+XnotBasel@3 net@198 net@168 Project1__notBaseline
+XnotBasel@4 E net@199 Project1__notBaseline
+XxorPass@0 net@187 D E Project1__xorPass
+.ENDS Project2__size_logic
 
 .global gnd vdd
 
-*** TOP LEVEL CELL: enq_logic_test{sch}
-VVPulse@0 E gnd pulse (1V 0V 0ns 0ps 0ps 1ns 2ns) DC 0V AC 0V 0
+*** TOP LEVEL CELL: size_logic_test{sch}
+VVPulse@0 D gnd pulse (1V 0V 0ns 0ps 0ps 1ns 2ns) DC 0V AC 0V 0
 VVPulse@1 C gnd pulse (1V 0V 0ns 0ps 0ps 2ns 4ns) DC 0V AC 0V 0
 VVPulse@2 B gnd pulse (1V 0V 0ns 0ps 0ps 4ns 8ns) DC 0V AC 0V 0
 VVPulse@3 A gnd pulse (1V 0V 0ns 0ps 0ps 8ns 16ns) DC 0V AC 0V 0
+VVPulse@4 E gnd pulse (1V 0V 0ns 0ps 0ps .5ns 1ns) DC 0V AC 0V 0
 VV_Generi@0 vdd gnd DC 1 AC 0
-Xenq_logi@0 A A_next B B_next C C_next E Project2__enq_logic
+Xsize_log@0 A A_next B B_next C C_next D E Empty Full Project2__size_logic
 .END
