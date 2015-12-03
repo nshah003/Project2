@@ -1,7 +1,7 @@
 *** SPICE deck for cell size_logic_test{sch} from library Project2
 *** Created on Wed Dec 02, 2015 23:12:26
 *** Last revised on Wed Dec 02, 2015 23:14:52
-*** Written on Wed Dec 02, 2015 23:15:25 by Electric VLSI Design System, version 9.06
+*** Written on Thu Dec 03, 2015 01:27:24 by Electric VLSI Design System, version 9.06
 *** Layout tech: mocmos, foundry MOSIS
 *** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
 * Model cards are described in this file:
