@@ -145,7 +145,7 @@ EWL|W_WL|D5G2;|pin@2||I
 X
 
 # Cell 6TSRAM;1{sch}
-C6TSRAM;1{sch}||schematic|1447610258849|1449088343850|
+C6TSRAM;1{sch}||schematic|1447610258849|1449181675429|
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NOff-Page|conn@0||-16|7||||
 NOff-Page|conn@1||-12|13|||RRR|
@@ -175,6 +175,8 @@ NWire_Pin|pin@16||9|9||||
 NTransistor|pmos@0||3|4|||R|2|ATTR_length(D5G0.5;X-0.5;Y-1;)S1|ATTR_width(D5G1;X0.5;Y-1;)S10
 NTransistor|pmos@1||-3|4|||XR|2|ATTR_length(D5G0.5;X-0.5;Y-1;)S1|ATTR_width(D5G1;X0.5;Y-1;)S1
 NPower|pwr@0||0|7||||
+Awire|Q|D5G1;||1800|pin@4||-5|-1|pin@7||1|-1
+Awire|Qnot|D5G1;||0|pin@5||5|1|pin@6||-1|1
 Awire|net@2|||0|nmos@2|g|2|-4|pin@0||1|-4
 Awire|net@4|||1800|pin@1||1|4|pmos@0|g|2|4
 Awire|net@5|||1800|nmos@3|g|-2|-4|pin@2||-1|-4
@@ -203,8 +205,6 @@ Awire|net@32|||900|conn@2|y|12|11|pin@14||12|1
 Awire|net@33|||0|pin@14||12|1|nmos@1|d|11|1
 Awire|net@34|||900|conn@1|y|-12|11|pin@15||-12|-1
 Awire|net@35|||1800|pin@15||-12|-1|nmos@0|s|-11|-1
-Awire|net@36|||0|pin@5||5|1|pin@6||-1|1
-Awire|net@37|||1800|pin@4||-5|-1|pin@7||1|-1
 Awire|net@38|||1800|conn@3|y|-14|9|pin@16||9|9
 Awire|net@39|||900|pin@16||9|9|nmos@1|g|9|4
 EBL||D5G2;X2;|conn@1|a|B
@@ -1599,6 +1599,64 @@ EWL1|W_WL1|D5G2;X-4;|conn@16|y|I
 EWL2|W_WL2|D5G2;|conn@17|a|I
 EWL3|W_WL3|D5G2;X-4;|conn@18|y|I
 EWL4|W_WL4|D5G2;X-4;|conn@19|y|I
+X
+
+# Cell memory_block_test;1{sch}
+Cmemory_block_test;1{sch}||schematic|1449178162808|1449182382556|
+IspicepartsS3:VPWL;1{ic}|VPWL@0||-22|-14|||D5G4;|ATTR_ACM(D6G0.5;NPX-0.5;Y-6;)S0V|ATTR_ACP(D6G0.5;NPX-0.5;Y-6.5;)I0|ATTR_VDC(D6G0.5;NPX-0.5;Y-7;)S0V|ATTR_pwl(D6G0.5;NPX-1.5;Y-8;)S0ns 0V .8ns 0V .9ns 1V 8.6ns 1V 8.7ns 0V
+IspicepartsS3:VPWL;1{ic}|VPWL@1||-17|-14|||D5G4;|ATTR_ACM(D6G0.5;NPX-0.5;Y-6;)S0V|ATTR_ACP(D6G0.5;NPX-0.5;Y-6.5;)I0|ATTR_VDC(D6G0.5;NPX-0.5;Y-7;)S0V|ATTR_pwl(D6G0.5;NPX-6.5;Y-8.5;)S0ns 0V .8ns 0V .9ns 1V 8.6ns 1V 8.7ns 0V
+IspicepartsS3:VPWL;1{ic}|VPWL@2||-12|-14|||D5G4;|ATTR_ACM(D6G0.5;NPX-0.5;Y-6;)S0V|ATTR_ACP(D6G0.5;NPX-0.5;Y-6.5;)I0|ATTR_VDC(D6G0.5;NPX-0.5;Y-7;)S0V|ATTR_pwl(D6G0.5;NPX-11.5;Y-9;)S0ns 0V .8ns 0V .9ns 1V 8.6ns 1V 8.7ns 0V
+IspicepartsS3:VPulse;1{ic}|VPulse@0||-27|-14|||D5G4;|ATTR_ACM(D6G0.5;NPX0.5;Y4;)S0V|ATTR_ACP(D6G0.5;NPX0.5;Y3.5;)I0|ATTR_PW(D6G0.5;NPX0.5;Y5;)S.5ns|ATTR_Per(D6G0.5;NPX0.5;Y4.5;)S1ns|ATTR_TD(D6G0.5;NPX0.5;Y6.5;)S0ns|ATTR_TF(D6G0.5;NPX0.5;Y5.5;)S0ps|ATTR_TR(D6G0.5;NPX0.5;Y6;)S0ps|ATTR_V1(D6G0.5;NPX0.5;Y7.5;)I0|ATTR_V2(D6G0.5;NPX0.5;Y7;)S1V|ATTR_VDC(D6G0.5;NPX0.5;Y3;)S0V
+IspicepartsS3:V_Generic;1{ic}|V_Generi@0||-30|4|||D5G4;|ATTR_Voltage(D6G0.5;PX-1.5;)SDC 1 AC 0
+Ngeneric:Facet-Center|art@0||0|0||||AV
+NGround|gnd@0||-30|-21||||
+Imemory_block;1{ic}|memory_b@0||12|4|||D5G4;
+NWire_Pin|pin@0||-7|-6||||
+NWire_Pin|pin@2||-7|14||||
+NWire_Pin|pin@6||-9|14||||
+NWire_Pin|pin@8||-27|-17||||
+NWire_Pin|pin@9||-30|-17||||
+NWire_Pin|pin@10||-27|22||||
+NWire_Pin|pin@11||-7|22||||
+NWire_Pin|pin@15||-5|-10||||
+NWire_Pin|pin@16||-22|11||||
+NWire_Pin|pin@17||-17|3||||
+NWire_Pin|pin@18||-12|-6||||
+NWire_Pin|pin@19||-12|-17||||
+NWire_Pin|pin@20||-17|-17||||
+NWire_Pin|pin@21||-22|-17||||
+Iprecharge;1{ic}|precharg@0||-7|18|||D5G4;
+NPower|pwr@0||-30|17||||
+Itri_state_inverter;1{ic}|tri_stat@0||12|-9|||D5G4;
+Iwide_not;1{ic}|wide_not@0||0|-10|||D5G4;
+Awire|BLB|D5G1;||900|memory_b@0|BLB1_o|-5|-4|pin@15||-5|-10
+Awire|Clk|D5G1;||1800|pin@10||-27|22|pin@11||-7|22
+Awire|R|D5G1;||0|tri_stat@0|Val|10|-10|wide_not@0|O|3|-10
+Awire|RWL|D5G1;||0|memory_b@0|R_WL1|-8|11|pin@16||-22|11
+Awire|W|D5G1;||0|pin@0||-7|-6|pin@18||-12|-6
+Awire|WWL|D5G1;||0|memory_b@0|WL1|-8|3|pin@17||-17|3
+Awire|net@0|||900|memory_b@0|BL1_o|-7|-4|pin@0||-7|-6
+Awire|net@2|||2700|memory_b@0|BL1_i|-7|12|pin@2||-7|14
+Awire|net@6|||0|pin@2||-7|14|pin@6||-9|14
+Awire|net@7|||2700|pin@6||-9|14|precharg@0|BL|-9|16
+Awire|net@11|||900|pwr@0||-30|17|V_Generi@0|plus|-30|8
+Awire|net@12|||900|VPulse@0|minus|-27|-14|pin@8||-27|-17
+Awire|net@13|||2700|gnd@0||-30|-19|pin@9||-30|-17
+Awire|net@14|||2700|pin@9||-30|-17|V_Generi@0|minus|-30|4
+Awire|net@15|||0|pin@8||-27|-17|pin@9||-30|-17
+Awire|net@16|||2700|VPulse@0|plus|-27|-10|pin@10||-27|22
+Awire|net@18|||900|pin@11||-7|22|precharg@0|Clk_B|-7|20
+Awire|net@24|||2700|VPWL@0|plus|-22|-10|pin@16||-22|11
+Awire|net@27|||2700|VPWL@1|plus|-17|-10|pin@17||-17|3
+Awire|net@31|||900|pin@18||-12|-6|VPWL@2|plus|-12|-10
+Awire|net@32|||900|VPWL@2|minus|-12|-14|pin@19||-12|-17
+Awire|net@34|||0|pin@19||-12|-17|pin@20||-17|-17
+Awire|net@36|||900|VPWL@1|minus|-17|-14|pin@20||-17|-17
+Awire|net@37|||0|pin@20||-17|-17|pin@21||-22|-17
+Awire|net@38|||0|pin@21||-22|-17|pin@8||-27|-17
+Awire|net@39|||900|VPWL@0|minus|-22|-14|pin@21||-22|-17
+Awire|net@41|||2700|memory_b@0|BLB1_i|-5|12|precharg@0|BL_B|-5|16
+Awire|net@42|||0|wide_not@0|A|-3|-10|pin@15||-5|-10
 X
 
 # Cell memory_core;1{ic}

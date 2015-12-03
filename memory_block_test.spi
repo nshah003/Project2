@@ -1,0 +1,85 @@
+*** SPICE deck for cell memory_block_test{sch} from library Project2
+*** Created on Thu Dec 03, 2015 16:29:22
+*** Last revised on Thu Dec 03, 2015 17:38:11
+*** Written on Thu Dec 03, 2015 17:38:44 by Electric VLSI Design System, version 9.06
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+* Model cards are described in this file:
+.include /Users/neilnshah/Desktop/JUNIOR-YEAR/Fall15/Courses/ESE370/Project2/Project2/22nm_HP.pm
+
+*** SUBCIRCUIT Project2__6TSRAM FROM CELL 6TSRAM{sch}
+.SUBCKT Project2__6TSRAM BL BL_B R_WL W_WL
+** GLOBAL gnd
+** GLOBAL vdd
+Mnmos@0 Q W_WL BL gnd N L=0.022U W=0.22U
+Mnmos@1 BL_B R_WL Qnot gnd N L=0.022U W=0.022U
+Mnmos@2 Qnot Q gnd gnd N L=0.022U W=0.22U
+Mnmos@3 Q Qnot gnd gnd N L=0.022U W=0.022U
+Mpmos@0 vdd Q Qnot vdd P L=0.022U W=0.22U
+Mpmos@1 vdd Qnot Q vdd P L=0.022U W=0.022U
+.ENDS Project2__6TSRAM
+
+*** SUBCIRCUIT Project2__word_cell FROM CELL word_cell{sch}
+.SUBCKT Project2__word_cell BL1_i BL2_i BL3_i BL4_i BLB1_i BLB2_i BLB3_i BLB4_i R_WL W_WL
+** GLOBAL gnd
+** GLOBAL vdd
+X_6TSRAM@0 BL1_i BLB1_i R_WL W_WL Project2__6TSRAM
+X_6TSRAM@1 BL2_i BLB2_i R_WL W_WL Project2__6TSRAM
+X_6TSRAM@2 BL3_i BLB3_i R_WL W_WL Project2__6TSRAM
+X_6TSRAM@3 BL4_i BLB4_i R_WL W_WL Project2__6TSRAM
+.ENDS Project2__word_cell
+
+*** SUBCIRCUIT Project2__memory_block FROM CELL memory_block{sch}
+.SUBCKT Project2__memory_block BL1_i BL2_i BL3_i BL4_i BL5_i BL6_i BL7_i BL8_i BLB1_i BLB2_i BLB3_i BLB4_i BLB5_i BLB6_i BLB7_i BLB8_i R_WL1 R_WL2 R_WL3 R_WL4 W_WL1 W_WL2 W_WL3 W_WL4
+** GLOBAL gnd
+** GLOBAL vdd
+Xword_cel@0 BL1_i BL2_i BL3_i BL4_i BLB1_i BLB2_i BLB3_i BLB4_i R_WL1 W_WL1 Project2__word_cell
+Xword_cel@1 BL5_i BL6_i BL7_i BL8_i BLB5_i BLB6_i BLB7_i BLB8_i R_WL1 W_WL1 Project2__word_cell
+Xword_cel@2 BL1_i BL2_i BL3_i BL4_i BLB1_i BLB2_i BLB3_i BLB4_i R_WL2 W_WL2 Project2__word_cell
+Xword_cel@3 BL5_i BL6_i BL7_i BL8_i BLB5_i BLB6_i BLB7_i BLB8_i R_WL2 W_WL2 Project2__word_cell
+Xword_cel@4 BL1_i BL2_i BL3_i BL4_i BLB1_i BLB2_i BLB3_i BLB4_i R_WL3 W_WL3 Project2__word_cell
+Xword_cel@5 BL5_i BL6_i BL7_i BL8_i BLB5_i BLB6_i BLB7_i BLB8_i R_WL3 W_WL3 Project2__word_cell
+Xword_cel@6 BL1_i BL2_i BL3_i BL4_i BLB1_i BLB2_i BLB3_i BLB4_i R_WL4 W_WL4 Project2__word_cell
+Xword_cel@7 BL5_i BL6_i BL7_i BL8_i BLB5_i BLB6_i BLB7_i BLB8_i R_WL4 W_WL4 Project2__word_cell
+.ENDS Project2__memory_block
+
+*** SUBCIRCUIT Project2__precharge FROM CELL precharge{sch}
+.SUBCKT Project2__precharge BL BL_B Clk_B
+** GLOBAL vdd
+Mpmos@0 vdd Clk_B BL_B vdd P L=0.022U W=0.022U
+Mpmos@1 vdd Clk_B BL vdd P L=0.022U W=0.022U
+.ENDS Project2__precharge
+
+*** SUBCIRCUIT Project2__tri_state_inverter FROM CELL tri_state_inverter{sch}
+.SUBCKT Project2__tri_state_inverter data En Out
+** GLOBAL gnd
+** GLOBAL vdd
+Mnmos@0 net@16 En gnd gnd N L=0.022U W=0.022U
+Mnmos@1 net@3 data gnd gnd N L=0.022U W=0.088U
+Mnmos@2 net@3 En Out gnd N L=0.022U W=0.044U
+Mpmos@0 vdd En net@16 vdd P L=0.022U W=0.022U
+Mpmos@1 vdd data net@3 vdd P L=0.022U W=0.088U
+Mpmos@2 Out net@16 net@3 vdd P L=0.022U W=0.044U
+.ENDS Project2__tri_state_inverter
+
+*** SUBCIRCUIT Project2__wide_not FROM CELL wide_not{sch}
+.SUBCKT Project2__wide_not A O
+** GLOBAL gnd
+** GLOBAL vdd
+Mnmos@0 O A gnd gnd N L=0.022U W=0.088U
+Mpmos@0 vdd A O vdd P L=0.022U W=0.088U
+.ENDS Project2__wide_not
+
+.global gnd vdd
+
+*** TOP LEVEL CELL: memory_block_test{sch}
+VVPWL@0 RWL gnd pwl (0ns 1V .6ns 1V .7ns 0V 1.8ns 0V 1.9ns 1V 2.6ns 1V 2.7ns 0V 2.8ns 0V 2.9ns 1V 3.6ns 1V 3.7ns 0V 5.8ns 0V 5.9ns 1V 6.6ns 1V 6.7ns 0V 6.8ns 0V 6.9ns 1V 7.6ns 1V 7.7ns 0V) DC 0V AC 0V 0
+VVPWL@1 WWL gnd pwl (0ns 0V .8ns 0V .9ns 1V 1.6ns 1V 1.7ns 0V 3.8ns 0V 3.9ns 1V 4.6ns 1V 4.7ns 0V 4.8ns 0V 4.9ns 1V 5.6ns 1V 5.7ns 0V) DC 0V AC 0V 0
+VVPWL@2 W gnd pwl (0ns 0V .8ns 0V .9ns 1V 1.6ns 1V 1.7ns 0V 4.8ns 0V 4.9ns 1V 5.6ns 1V 5.7ns 0V) DC 0V AC 0V 0
+VVPulse@0 Clk gnd pulse (0 1V 0ns 0ps 0ps .5ns 1ns) DC 0V AC 0V 0
+VV_Generi@0 vdd gnd DC 1 AC 0
+Xmemory_b@0 W memory_b@0_BL2_i memory_b@0_BL3_i memory_b@0_BL4_i memory_b@0_BL5_i memory_b@0_BL6_i memory_b@0_BL7_i memory_b@0_BL8_i BLB memory_b@0_BLB2_i memory_b@0_BLB3_i memory_b@0_BLB4_i memory_b@0_BLB5_i memory_b@0_BLB6_i memory_b@0_BLB7_i memory_b@0_BLB8_i RWL memory_b@0_R_WL2 memory_b@0_R_WL3 memory_b@0_R_WL4 WWL memory_b@0_W_WL2 memory_b@0_W_WL3 memory_b@0_W_WL4 Project2__memory_block
+Xprecharg@0 W BLB Clk Project2__precharge
+Xtri_stat@0 R tri_stat@0_En tri_stat@0_Out Project2__tri_state_inverter
+Xwide_not@0 BLB R Project2__wide_not
+.END
