@@ -7,6 +7,20 @@
 * Model cards are described in this file:
 .include /Users/neilnshah/Desktop/JUNIOR-YEAR/Fall15/Courses/ESE370/Project2/Project2/22nm_HP.pm
 
+*** SUBCIRCUIT Project2__and3 FROM CELL and3{sch}
+.SUBCKT Project2__and3 A B C O
+** GLOBAL gnd
+** GLOBAL vdd
+Mnmos@0 net@2 A net@11 gnd N L=0.022U W=0.022U
+Mnmos@1 net@11 B net@12 gnd N L=0.022U W=0.022U
+Mnmos@2 net@12 C gnd gnd N L=0.022U W=0.022U
+Mnmos@3 O net@2 gnd gnd N L=0.022U W=0.022U
+Mpmos@0 vdd C net@2 vdd P L=0.022U W=0.022U
+Mpmos@1 vdd net@2 O vdd P L=0.022U W=0.022U
+Mpmos@2 vdd B net@2 vdd P L=0.022U W=0.022U
+Mpmos@3 vdd A net@2 vdd P L=0.022U W=0.022U
+.ENDS Project2__and3
+
 *** SUBCIRCUIT Project1__nandBaseline FROM CELL Project1:nandBaseline{sch}
 .SUBCKT Project1__nandBaseline out x y
 ** GLOBAL gnd
@@ -41,6 +55,28 @@ XnandBase@2 Cout net@3 net@16 Project1__nandBaseline
 XxorPass@0 net@17 B A Project1__xorPass
 XxorPass@1 S Cin net@17 Project1__xorPass
 .ENDS Project2__full_adder
+
+*** SUBCIRCUIT Project2__nor3 FROM CELL nor3{sch}
+.SUBCKT Project2__nor3 A B C O
+** GLOBAL gnd
+** GLOBAL vdd
+Mnmos@0 O C gnd gnd N L=0.022U W=0.022U
+Mnmos@1 O B gnd gnd N L=0.022U W=0.022U
+Mnmos@2 O A gnd gnd N L=0.022U W=0.022U
+Mpmos@0 vdd A net@0 vdd P L=0.022U W=0.022U
+Mpmos@1 net@0 B net@1 vdd P L=0.022U W=0.022U
+Mpmos@2 net@1 C O vdd P L=0.022U W=0.022U
+.ENDS Project2__nor3
+
+*** SUBCIRCUIT Project1__norBaseline FROM CELL Project1:norBaseline{sch}
+.SUBCKT Project1__norBaseline out x y
+** GLOBAL gnd
+** GLOBAL vdd
+Mnmos@0 out x gnd gnd N L=0.022U W=0.022U
+Mnmos@1 out y gnd gnd N L=0.022U W=0.022U
+Mpmos@0 vdd y net@10 vdd P L=0.022U W=0.022U
+Mpmos@1 net@10 x out vdd P L=0.022U W=0.022U
+.ENDS Project1__norBaseline
 
 *** SUBCIRCUIT Project1__notBaseline FROM CELL Project1:notBaseline{sch}
 .SUBCKT Project1__notBaseline in out
