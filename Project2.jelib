@@ -2435,7 +2435,8 @@ EFull||D5G2;|pin@20||O
 X
 
 # Cell size_logic;1{sch}
-Csize_logic;1{sch}||schematic|1448950712137|1449125135792|
+Csize_logic;1{sch}||schematic|1448950712137|1449129575085|
+Iand3;1{ic}|and3@0||10|13|||D5G4;
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NOff-Page|conn@0||-40|-9||||
 NOff-Page|conn@1||-40|5||||
@@ -2446,12 +2447,13 @@ NOff-Page|conn@12||-5|-8||||
 NOff-Page|conn@13||-5|4||||
 NOff-Page|conn@14||-5|15||||
 NOff-Page|conn@15||18|13||||
-NOff-Page|conn@16||18|10||||
+NOff-Page|conn@16||18|6||||
 Ifull_adder;1{ic}|full_add@0||-14|14|||D5G4;
 Ifull_adder;1{ic}|full_add@1||-14|3|||D5G4;
 Ifull_adder;1{ic}|full_add@2||-14|-9|||D5G4;
 NGround|gnd@0||-24|9||||
 IProject1:nandBaseline;1{ic}|nandBase@0||-30|3|||D5G4;
+Inor3;1{ic}|nor3@0||10|6|||D5G4;
 IProject1:notBaseline;1{ic}|notBasel@3||-24|3|||D5G4;
 IProject1:notBaseline;1{ic}|notBasel@4||-34|-2|R||D5G4;
 NWire_Pin|pin@66||-9|13||||
@@ -2475,9 +2477,11 @@ NWire_Pin|pin@93||0|13||||
 NWire_Pin|pin@94||0|4||||
 NWire_Pin|pin@95||2|11||||
 NWire_Pin|pin@96||2|-8||||
-NWire_Pin|pin@97||5|15||||
-NWire_Pin|pin@98||5|13||||
-NWire_Pin|pin@99||5|11||||
+NWire_Pin|pin@97||6|8||||
+NWire_Pin|pin@98||6|15||||
+NWire_Pin|pin@99||4|6||||
+NWire_Pin|pin@100||4|13||||
+NWire_Pin|pin@101||2|4||||
 IProject1:xorPass;1{ic}|xorPass@0||-24|-10|||D5G4;
 Awire|net@158|||1800|full_add@0|Cout|-11|13|pin@66||-9|13
 Awire|net@159|||900|pin@66||-9|13|pin@67||-9|7
@@ -2516,11 +2520,21 @@ Awire|net@213|||900|pin@92||-24|12|gnd@0||-24|11
 Awire|net@214|||0|full_add@0|Cin|-17|12|pin@92||-24|12
 Awire|net@217|||900|pin@93||0|13|pin@94||0|4
 Awire|net@218|||0|pin@94||0|4|conn@13|y|-3|4
-Awire|net@220|||900|pin@95||2|11|pin@96||2|-8
 Awire|net@221|||0|pin@96||2|-8|conn@12|y|-3|-8
-Awire|net@222|||1800|conn@14|y|-3|15|pin@97||5|15
-Awire|net@223|||1800|pin@93||0|13|pin@98||5|13
-Awire|net@224|||1800|pin@95||2|11|pin@99||5|11
+Awire|net@228|||1800|pin@95||2|11|and3@0|C|8|11
+Awire|net@231|||1800|and3@0|O|12|13|conn@15|a|16|13
+Awire|net@232|||0|nor3@0|A|8|8|pin@97||6|8
+Awire|net@233|||1800|conn@14|y|-3|15|pin@98||6|15
+Awire|net@234|||1800|pin@98||6|15|and3@0|A|8|15
+Awire|net@235|||2700|pin@97||6|8|pin@98||6|15
+Awire|net@236|||0|nor3@0|B|8|6|pin@99||4|6
+Awire|net@237|||1800|pin@93||0|13|pin@100||4|13
+Awire|net@238|||1800|pin@100||4|13|and3@0|B|8|13
+Awire|net@239|||2700|pin@99||4|6|pin@100||4|13
+Awire|net@240|||900|pin@95||2|11|pin@101||2|4
+Awire|net@241|||900|pin@101||2|4|pin@96||2|-8
+Awire|net@242|||0|nor3@0|C|8|4|pin@101||2|4
+Awire|net@243|||0|conn@16|a|16|6|nor3@0|O|12|6
 EA1|A|D5G2;|conn@2|y|I
 EA_next||D5G2;|conn@12|y|O
 EA2|B|D5G2;|conn@1|y|I
@@ -2534,12 +2548,12 @@ EFull||D5G2;|conn@15|y|O
 X
 
 # Cell size_logic_test;1{sch}
-Csize_logic_test;1{sch}||schematic|1449115946603|1449116092461|
-IspicepartsS3:VPulse;1{ic}|VPulse@0||5|-5|||D5G4;|ATTR_ACM(D6G0.5;NPX2.5;Y-1;)S0V|ATTR_ACP(D6G0.5;NPX2.5;Y-1.5;)I0|ATTR_PW(D6G0.5;NPX2.5;)S1ns|ATTR_Per(D6G0.5;NPX2.5;Y-0.5;)S2ns|ATTR_TD(D6G0.5;NPX2.5;Y1.5;)S0ns|ATTR_TF(D6G0.5;NPX2.5;Y0.5;)S0ps|ATTR_TR(D6G0.5;NPX2.5;Y1;)S0ps|ATTR_V1(D6G0.5;NPX2.5;Y2.5;)S1V|ATTR_V2(D6G0.5;NPX2.5;Y2;)S0V|ATTR_VDC(D6G0.5;NPX2.5;Y-2;)S0V
-IspicepartsS3:VPulse;1{ic}|VPulse@1||-2|-5|||D5G4;|ATTR_ACM(D6G0.5;NPX2.5;Y-1;)S0V|ATTR_ACP(D6G0.5;NPX2.5;Y-1.5;)I0|ATTR_PW(D6G0.5;NPX2.5;)S2ns|ATTR_Per(D6G0.5;NPX2.5;Y-0.5;)S4ns|ATTR_TD(D6G0.5;NPX2.5;Y1.5;)S0ns|ATTR_TF(D6G0.5;NPX2.5;Y0.5;)S0ps|ATTR_TR(D6G0.5;NPX2.5;Y1;)S0ps|ATTR_V1(D6G0.5;NPX2.5;Y2.5;)S1V|ATTR_V2(D6G0.5;NPX2.5;Y2;)S0V|ATTR_VDC(D6G0.5;NPX2.5;Y-2;)S0V
-IspicepartsS3:VPulse;1{ic}|VPulse@2||-9|-5|||D5G4;|ATTR_ACM(D6G0.5;NPX2.5;Y-1;)S0V|ATTR_ACP(D6G0.5;NPX2.5;Y-1.5;)I0|ATTR_PW(D6G0.5;NPX2.5;)S4ns|ATTR_Per(D6G0.5;NPX2.5;Y-0.5;)S8ns|ATTR_TD(D6G0.5;NPX2.5;Y1.5;)S0ns|ATTR_TF(D6G0.5;NPX2.5;Y0.5;)S0ps|ATTR_TR(D6G0.5;NPX2.5;Y1;)S0ps|ATTR_V1(D6G0.5;NPX2.5;Y2.5;)S1V|ATTR_V2(D6G0.5;NPX2.5;Y2;)S0V|ATTR_VDC(D6G0.5;NPX2.5;Y-2;)S0V
-IspicepartsS3:VPulse;1{ic}|VPulse@3||-16|-5|||D5G4;|ATTR_ACM(D6G0.5;NPX2.5;Y-1;)S0V|ATTR_ACP(D6G0.5;NPX2.5;Y-1.5;)I0|ATTR_PW(D6G0.5;NPX2.5;)S8ns|ATTR_Per(D6G0.5;NPX2.5;Y-0.5;)S16ns|ATTR_TD(D6G0.5;NPX2.5;Y1.5;)S0ns|ATTR_TF(D6G0.5;NPX2.5;Y0.5;)S0ps|ATTR_TR(D6G0.5;NPX2.5;Y1;)S0ps|ATTR_V1(D6G0.5;NPX2.5;Y2.5;)S1V|ATTR_V2(D6G0.5;NPX2.5;Y2;)S0V|ATTR_VDC(D6G0.5;NPX2.5;Y-2;)S0V
-IspicepartsS3:VPulse;1{ic}|VPulse@4||12|-5|||D5G4;|ATTR_ACM(D6G0.5;NPX2.5;Y-1;)S0V|ATTR_ACP(D6G0.5;NPX2.5;Y-1.5;)I0|ATTR_PW(D6G0.5;NPX2.5;)S.5ns|ATTR_Per(D6G0.5;NPX2.5;Y-0.5;)S1ns|ATTR_TD(D6G0.5;NPX2.5;Y1.5;)S0ns|ATTR_TF(D6G0.5;NPX2.5;Y0.5;)S0ps|ATTR_TR(D6G0.5;NPX2.5;Y1;)S0ps|ATTR_V1(D6G0.5;NPX2.5;Y2.5;)S1V|ATTR_V2(D6G0.5;NPX2.5;Y2;)S0V|ATTR_VDC(D6G0.5;NPX2.5;Y-2;)S0V
+Csize_logic_test;1{sch}||schematic|1449115946603|1449129826932|
+IspicepartsS3:VPulse;1{ic}|VPulse@0||5|-5|||D5G4;|ATTR_ACM(D6G0.5;NPX2.5;Y-1;)S0V|ATTR_ACP(D6G0.5;NPX2.5;Y-1.5;)I0|ATTR_PW(D6G0.5;NPX2.5;)S2ns|ATTR_Per(D6G0.5;NPX2.5;Y-0.5;)S4ns|ATTR_TD(D6G0.5;NPX2.5;Y1.5;)S0ns|ATTR_TF(D6G0.5;NPX2.5;Y0.5;)S0ps|ATTR_TR(D6G0.5;NPX2.5;Y1;)S0ps|ATTR_V1(D6G0.5;NPX2.5;Y2.5;)S1V|ATTR_V2(D6G0.5;NPX2.5;Y2;)S0V|ATTR_VDC(D6G0.5;NPX2.5;Y-2;)S0V
+IspicepartsS3:VPulse;1{ic}|VPulse@1||-2|-5|||D5G4;|ATTR_ACM(D6G0.5;NPX2.5;Y-1;)S0V|ATTR_ACP(D6G0.5;NPX2.5;Y-1.5;)I0|ATTR_PW(D6G0.5;NPX2.5;)S4ns|ATTR_Per(D6G0.5;NPX2.5;Y-0.5;)S8ns|ATTR_TD(D6G0.5;NPX2.5;Y1.5;)S0ns|ATTR_TF(D6G0.5;NPX2.5;Y0.5;)S0ps|ATTR_TR(D6G0.5;NPX2.5;Y1;)S0ps|ATTR_V1(D6G0.5;NPX2.5;Y2.5;)S1V|ATTR_V2(D6G0.5;NPX2.5;Y2;)S0V|ATTR_VDC(D6G0.5;NPX2.5;Y-2;)S0V
+IspicepartsS3:VPulse;1{ic}|VPulse@2||-9|-5|||D5G4;|ATTR_ACM(D6G0.5;NPX2.5;Y-1;)S0V|ATTR_ACP(D6G0.5;NPX2.5;Y-1.5;)I0|ATTR_PW(D6G0.5;NPX2.5;)S8ns|ATTR_Per(D6G0.5;NPX2.5;Y-0.5;)S16ns|ATTR_TD(D6G0.5;NPX2.5;Y1.5;)S0ns|ATTR_TF(D6G0.5;NPX2.5;Y0.5;)S0ps|ATTR_TR(D6G0.5;NPX2.5;Y1;)S0ps|ATTR_V1(D6G0.5;NPX2.5;Y2.5;)S1V|ATTR_V2(D6G0.5;NPX2.5;Y2;)S0V|ATTR_VDC(D6G0.5;NPX2.5;Y-2;)S0V
+IspicepartsS3:VPulse;1{ic}|VPulse@3||-16|-5|||D5G4;|ATTR_ACM(D6G0.5;NPX2.5;Y-1;)S0V|ATTR_ACP(D6G0.5;NPX2.5;Y-1.5;)I0|ATTR_PW(D6G0.5;NPX2.5;)S16ns|ATTR_Per(D6G0.5;NPX2.5;Y-0.5;)S32ns|ATTR_TD(D6G0.5;NPX2.5;Y1.5;)S0ns|ATTR_TF(D6G0.5;NPX2.5;Y0.5;)S0ps|ATTR_TR(D6G0.5;NPX2.5;Y1;)S0ps|ATTR_V1(D6G0.5;NPX2.5;Y2.5;)S1V|ATTR_V2(D6G0.5;NPX2.5;Y2;)S0V|ATTR_VDC(D6G0.5;NPX2.5;Y-2;)S0V
+IspicepartsS3:VPulse;1{ic}|VPulse@4||12|-5|||D5G4;|ATTR_ACM(D6G0.5;NPX2.5;Y-1;)S0V|ATTR_ACP(D6G0.5;NPX2.5;Y-1.5;)I0|ATTR_PW(D6G0.5;NPX2.5;)S1ns|ATTR_Per(D6G0.5;NPX2.5;Y-0.5;)S2ns|ATTR_TD(D6G0.5;NPX2.5;Y1.5;)S0ns|ATTR_TF(D6G0.5;NPX2.5;Y0.5;)S0ps|ATTR_TR(D6G0.5;NPX2.5;Y1;)S0ps|ATTR_V1(D6G0.5;NPX2.5;Y2.5;)S1V|ATTR_V2(D6G0.5;NPX2.5;Y2;)S0V|ATTR_VDC(D6G0.5;NPX2.5;Y-2;)S0V
 IspicepartsS3:V_Generic;1{ic}|V_Generi@0||-19|0|||D5G4;|ATTR_Voltage(D6G0.5;PX-1.5;)SDC 1 AC 0
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NGround|gnd@0||-19|-11||||
