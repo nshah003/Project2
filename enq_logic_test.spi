@@ -1,0 +1,63 @@
+*** SPICE deck for cell enq_logic_test{sch} from library Project2
+*** Created on Wed Dec 02, 2015 22:58:23
+*** Last revised on Wed Dec 02, 2015 22:59:59
+*** Written on Wed Dec 02, 2015 23:00:13 by Electric VLSI Design System, version 9.06
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+* Model cards are described in this file:
+.include /Users/neilnshah/Desktop/JUNIOR-YEAR/Fall15/Courses/ESE370/Project2/Project2/22nm_HP.pm
+
+*** SUBCIRCUIT Project1__nandBaseline FROM CELL Project1:nandBaseline{sch}
+.SUBCKT Project1__nandBaseline out x y
+** GLOBAL gnd
+** GLOBAL vdd
+Mnmos@0 out x net@13 gnd N L=0.022U W=0.022U
+Mnmos@1 net@13 y gnd gnd N L=0.022U W=0.022U
+Mpmos@0 vdd x out vdd P L=0.022U W=0.022U
+Mpmos@1 vdd y out vdd P L=0.022U W=0.022U
+.ENDS Project1__nandBaseline
+
+*** SUBCIRCUIT Project1__xorPass FROM CELL Project1:xorPass{sch}
+.SUBCKT Project1__xorPass out x y
+** GLOBAL gnd
+** GLOBAL vdd
+Mnmos@1 net@150 y gnd gnd N L=0.022U W=0.022U
+Mnmos@2 net@166 net@130 net@150 gnd N L=0.022U W=0.022U
+Mnmos@3 y x net@166 gnd N L=0.022U W=0.022U
+Mnmos@4 net@130 x gnd gnd N L=0.022U W=0.022U
+Mnmos@5 out net@166 gnd gnd N L=0.022U W=0.022U
+Mpmos@1 vdd y net@150 vdd P L=0.022U W=0.022U
+Mpmos@2 vdd x net@130 vdd P L=0.022U W=0.022U
+Mpmos@3 vdd net@166 out vdd P L=0.022U W=0.022U
+.ENDS Project1__xorPass
+
+*** SUBCIRCUIT Project2__full_adder FROM CELL full_adder{sch}
+.SUBCKT Project2__full_adder A B Cin Cout S
+** GLOBAL gnd
+** GLOBAL vdd
+XnandBase@0 net@3 B A Project1__nandBaseline
+XnandBase@1 net@16 net@17 Cin Project1__nandBaseline
+XnandBase@2 Cout net@3 net@16 Project1__nandBaseline
+XxorPass@0 net@17 B A Project1__xorPass
+XxorPass@1 S Cin net@17 Project1__xorPass
+.ENDS Project2__full_adder
+
+*** SUBCIRCUIT Project2__enq_logic FROM CELL enq_logic{sch}
+.SUBCKT Project2__enq_logic A A_next B B_next C C_next E
+** GLOBAL gnd
+** GLOBAL vdd
+Xfull_add@0 B gnd net@151 net@146 B_next Project2__full_adder
+Xfull_add@1 C gnd gnd net@151 C_next Project2__full_adder
+Xfull_add@2 A E net@146 full_add@2_Cout A_next Project2__full_adder
+.ENDS Project2__enq_logic
+
+.global gnd vdd
+
+*** TOP LEVEL CELL: enq_logic_test{sch}
+VVPulse@0 E gnd pulse (1V 0V 0ns 0ps 0ps 1ns 2ns) DC 0V AC 0V 0
+VVPulse@1 C gnd pulse (1V 0V 0ns 0ps 0ps 2ns 4ns) DC 0V AC 0V 0
+VVPulse@2 B gnd pulse (1V 0V 0ns 0ps 0ps 4ns 8ns) DC 0V AC 0V 0
+VVPulse@3 A gnd pulse (1V 0V 0ns 0ps 0ps 8ns 16ns) DC 0V AC 0V 0
+VV_Generi@0 vdd gnd DC 1 AC 0
+Xenq_logi@0 A A_next B B_next C C_next E Project2__enq_logic
+.END
