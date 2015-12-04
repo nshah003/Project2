@@ -1,7 +1,7 @@
 *** SPICE deck for cell memory_core_test{sch} from library Project2
 *** Created on Thu Dec 03, 2015 14:08:13
 *** Last revised on Fri Dec 04, 2015 02:20:37
-*** Written on Fri Dec 04, 2015 03:45:10 by Electric VLSI Design System, version 9.06
+*** Written on Fri Dec 04, 2015 03:49:51 by Electric VLSI Design System, version 9.06
 *** Layout tech: mocmos, foundry MOSIS
 *** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
 * Model cards are described in this file:
@@ -174,7 +174,8 @@ Mpmos@2 net@1 C O vdd P L=0.022U W=0.022U
 ** GLOBAL vdd
 Xand3@0 A B C Full Project2__and3
 Xand3@1 net@265 net@266 net@269 net@245 Project2__and3
-Xfull_add@0 C net@249 gnd net@158 C_next Project2__full_adder
+Xand3@2 net@269 net@296 net@266 net@250 Project2__and3
+Xfull_add@0 C net@250 gnd net@158 C_next Project2__full_adder
 Xfull_add@1 B net@245 net@158 net@163 B_next Project2__full_adder
 Xfull_add@2 A net@245 net@163 full_add@2_Cout A_next Project2__full_adder
 XnandBase@0 net@198 D net@199 Project1__nandBaseline
@@ -183,7 +184,7 @@ XnandBase@2 net@269 Empty D Project1__nandBaseline
 Xnor3@0 A B C Empty Project2__nor3
 XnotBasel@3 net@198 net@265 Project1__notBaseline
 XnotBasel@4 E net@199 Project1__notBaseline
-XxorPass@0 net@249 D E Project1__xorPass
+XxorPass@0 net@296 D E Project1__xorPass
 .ENDS Project2__size_logic
 
 *** SUBCIRCUIT Project2__control_logic FROM CELL control_logic{sch}
