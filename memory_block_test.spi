@@ -75,7 +75,7 @@ Mpmos@0 vdd A O vdd P L=0.022U W=0.088U
 *** TOP LEVEL CELL: memory_block_test{sch}
 VVPWL@0 RWL gnd pwl (0ns 1V .6ns 1V .7ns 0V 1.8ns 0V 1.9ns 1V 2.6ns 1V 2.7ns 0V 2.8ns 0V 2.9ns 1V 3.6ns 1V 3.7ns 0V 5.8ns 0V 5.9ns 1V 6.6ns 1V 6.7ns 0V 6.8ns 0V 6.9ns 1V 7.6ns 1V 7.7ns 0V) DC 0V AC 0V 0
 VVPWL@1 WWL gnd pwl (0ns 0V .8ns 0V .9ns 1V 1.6ns 1V 1.7ns 0V 3.8ns 0V 3.9ns 1V 4.6ns 1V 4.7ns 0V 4.8ns 0V 4.9ns 1V 5.6ns 1V 5.7ns 0V) DC 0V AC 0V 0
-VVPWL@2 W gnd pwl (0ns 0V .8ns 0V .9ns 1V 1.6ns 1V 1.7ns 0V 4.8ns 0V 4.9ns 1V 5.6ns 1V 5.7ns 0V) DC 0V AC 0V 0
+VVPWL@2 W gnd pwl (0ns 0V .8ns 0V .9ns 1V 1.6ns 1V 1.7ns 0V 4.8ns 0V) DC 0V AC 0V 0
 VVPulse@0 Clk gnd pulse (0 1V 0ns 0ps 0ps .5ns 1ns) DC 0V AC 0V 0
 VV_Generi@0 vdd gnd DC 1 AC 0
 Xmemory_b@0 W memory_b@0_BL2_i memory_b@0_BL3_i memory_b@0_BL4_i memory_b@0_BL5_i memory_b@0_BL6_i memory_b@0_BL7_i memory_b@0_BL8_i BLB memory_b@0_BLB2_i memory_b@0_BLB3_i memory_b@0_BLB4_i memory_b@0_BLB5_i memory_b@0_BLB6_i memory_b@0_BLB7_i memory_b@0_BLB8_i RWL memory_b@0_R_WL2 memory_b@0_R_WL3 memory_b@0_R_WL4 WWL memory_b@0_W_WL2 memory_b@0_W_WL3 memory_b@0_W_WL4 Project2__memory_block
