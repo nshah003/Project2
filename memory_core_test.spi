@@ -1,7 +1,7 @@
 *** SPICE deck for cell memory_core_test{sch} from library Project2
 *** Created on Thu Dec 03, 2015 14:08:13
 *** Last revised on Thu Dec 03, 2015 22:20:03
-*** Written on Thu Dec 03, 2015 23:33:03 by Electric VLSI Design System, version 9.06
+*** Written on Fri Dec 04, 2015 00:09:22 by Electric VLSI Design System, version 9.06
 *** Layout tech: mocmos, foundry MOSIS
 *** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
 * Model cards are described in this file:
@@ -256,8 +256,8 @@ Xword_cel@7 BL5_i BL6_i BL7_i BL8_i BLB5_i BLB6_i BLB7_i BLB8_i R_WL4 W_WL4 Proj
 *** SUBCIRCUIT Project2__precharge FROM CELL precharge{sch}
 .SUBCKT Project2__precharge BL BL_B Clk_B
 ** GLOBAL vdd
-Mpmos@0 vdd Clk_B BL_B vdd P L=0.022U W=0.44U
-Mpmos@1 vdd Clk_B BL vdd P L=0.022U W=0.44U
+Mpmos@0 vdd Clk_B BL_B vdd P L=0.022U W=2.2U
+Mpmos@1 vdd Clk_B BL vdd P L=0.022U W=2.2U
 .ENDS Project2__precharge
 
 *** SUBCIRCUIT Project2__precharge_word FROM CELL precharge_word{sch}
@@ -281,6 +281,14 @@ Mpmos@1 vdd data net@3 vdd P L=0.022U W=0.088U
 Mpmos@2 Out net@16 net@3 vdd P L=0.022U W=0.044U
 .ENDS Project2__tri_state_inverter
 
+*** SUBCIRCUIT Project2__vvwide_not FROM CELL vvwide_not{sch}
+.SUBCKT Project2__vvwide_not A O
+** GLOBAL gnd
+** GLOBAL vdd
+Mnmos@0 O A gnd gnd N L=0.022U W=0.88U
+Mpmos@0 vdd A O vdd P L=0.022U W=0.88U
+.ENDS Project2__vvwide_not
+
 *** SUBCIRCUIT Project2__memory_core FROM CELL memory_core{sch}
 .SUBCKT Project2__memory_core Clk_fast Clk_slow Deq Empty Enq Full I0 I1 I2 I3 O0 O1 O2 O3
 ** GLOBAL gnd
@@ -293,14 +301,14 @@ XnotBasel@0 EA net@66 Project1__notBaseline
 XnotBasel@1 DA net@97 Project1__notBaseline
 Xprecharg@0 WBL3 WBL2 WBL1 WBL0 RBL3 RBL2 RBL1 RBL0 Clk_fast Project2__precharge_word
 Xprecharg@1 WBL7 WBL6 WBL5 WBL4 RBL7 RBL6 RBL5 RBL4 Clk_fast Project2__precharge_word
-Xtri_stat@1 I3 net@66 net@222 Project2__tri_state_inverter
-Xtri_stat@2 I2 net@66 net@223 Project2__tri_state_inverter
-Xtri_stat@3 I1 net@66 net@224 Project2__tri_state_inverter
-Xtri_stat@4 I0 net@66 net@225 Project2__tri_state_inverter
-Xtri_stat@5 I3 EA net@226 Project2__tri_state_inverter
-Xtri_stat@6 I2 EA net@227 Project2__tri_state_inverter
-Xtri_stat@7 I1 EA net@228 Project2__tri_state_inverter
-Xtri_stat@8 I0 EA net@229 Project2__tri_state_inverter
+Xtri_stat@1 I3 net@66 net@280 Project2__tri_state_inverter
+Xtri_stat@2 I2 net@66 net@281 Project2__tri_state_inverter
+Xtri_stat@3 I1 net@66 net@282 Project2__tri_state_inverter
+Xtri_stat@4 I0 net@66 net@283 Project2__tri_state_inverter
+Xtri_stat@5 I3 EA net@284 Project2__tri_state_inverter
+Xtri_stat@6 I2 EA net@285 Project2__tri_state_inverter
+Xtri_stat@7 I1 EA net@286 Project2__tri_state_inverter
+Xtri_stat@8 I0 EA net@287 Project2__tri_state_inverter
 Xtri_stat@9 RBL3 net@97 O3 Project2__tri_state_inverter
 Xtri_stat@10 RBL2 net@97 O2 Project2__tri_state_inverter
 Xtri_stat@11 RBL1 net@97 O1 Project2__tri_state_inverter
@@ -309,14 +317,30 @@ Xtri_stat@13 RBL7 DA O3 Project2__tri_state_inverter
 Xtri_stat@14 RBL6 DA O2 Project2__tri_state_inverter
 Xtri_stat@15 RBL5 DA O1 Project2__tri_state_inverter
 Xtri_stat@16 RBL4 DA O0 Project2__tri_state_inverter
-Xvwide_no@0 net@222 WBL3 Project2__vwide_not
-Xvwide_no@1 net@223 WBL2 Project2__vwide_not
-Xvwide_no@2 net@224 WBL1 Project2__vwide_not
-Xvwide_no@3 net@225 WBL0 Project2__vwide_not
-Xvwide_no@4 net@226 WBL7 Project2__vwide_not
-Xvwide_no@5 net@227 WBL6 Project2__vwide_not
-Xvwide_no@6 net@228 WBL5 Project2__vwide_not
-Xvwide_no@7 net@229 WBL4 Project2__vwide_not
+Xvvwide_n@0 net@295 WBL3 Project2__vvwide_not
+Xvvwide_n@1 net@294 WBL2 Project2__vvwide_not
+Xvvwide_n@2 net@293 WBL1 Project2__vvwide_not
+Xvvwide_n@3 net@292 WBL0 Project2__vvwide_not
+Xvvwide_n@4 net@291 WBL7 Project2__vvwide_not
+Xvvwide_n@5 net@290 WBL6 Project2__vvwide_not
+Xvvwide_n@6 net@289 WBL5 Project2__vvwide_not
+Xvvwide_n@7 net@288 WBL4 Project2__vvwide_not
+Xvwide_no@0 net@272 net@295 Project2__vwide_not
+Xvwide_no@1 net@273 net@294 Project2__vwide_not
+Xvwide_no@2 net@274 net@293 Project2__vwide_not
+Xvwide_no@3 net@275 net@292 Project2__vwide_not
+Xvwide_no@4 net@276 net@291 Project2__vwide_not
+Xvwide_no@5 net@277 net@290 Project2__vwide_not
+Xvwide_no@6 net@278 net@289 Project2__vwide_not
+Xvwide_no@7 net@279 net@288 Project2__vwide_not
+Xwide_not@16 net@280 net@272 Project2__wide_not
+Xwide_not@17 net@281 net@273 Project2__wide_not
+Xwide_not@18 net@282 net@274 Project2__wide_not
+Xwide_not@19 net@283 net@275 Project2__wide_not
+Xwide_not@20 net@284 net@276 Project2__wide_not
+Xwide_not@21 net@285 net@277 Project2__wide_not
+Xwide_not@22 net@286 net@278 Project2__wide_not
+Xwide_not@23 net@287 net@279 Project2__wide_not
 .ENDS Project2__memory_core
 
 .global gnd vdd
