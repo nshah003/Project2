@@ -1,7 +1,7 @@
 *** SPICE deck for cell memory_core_test{sch} from library Project2
 *** Created on Thu Dec 03, 2015 14:08:13
-*** Last revised on Thu Dec 03, 2015 22:20:03
-*** Written on Fri Dec 04, 2015 00:09:22 by Electric VLSI Design System, version 9.06
+*** Last revised on Fri Dec 04, 2015 02:20:37
+*** Written on Fri Dec 04, 2015 03:45:10 by Electric VLSI Design System, version 9.06
 *** Layout tech: mocmos, foundry MOSIS
 *** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
 * Model cards are described in this file:
@@ -149,9 +149,9 @@ Xfull_add@2 A E net@146 full_add@2_Cout A_next Project2__full_adder
 Mnmos@0 net@2 A net@11 gnd N L=0.022U W=0.022U
 Mnmos@1 net@11 B net@12 gnd N L=0.022U W=0.022U
 Mnmos@2 net@12 C gnd gnd N L=0.022U W=0.022U
-Mnmos@3 O net@2 gnd gnd N L=0.022U W=0.022U
+Mnmos@3 O net@2 gnd gnd N L=0.022U W=0.088U
 Mpmos@0 vdd C net@2 vdd P L=0.022U W=0.022U
-Mpmos@1 vdd net@2 O vdd P L=0.022U W=0.022U
+Mpmos@1 vdd net@2 O vdd P L=0.022U W=0.088U
 Mpmos@2 vdd B net@2 vdd P L=0.022U W=0.022U
 Mpmos@3 vdd A net@2 vdd P L=0.022U W=0.022U
 .ENDS Project2__and3
@@ -173,12 +173,15 @@ Mpmos@2 net@1 C O vdd P L=0.022U W=0.022U
 ** GLOBAL gnd
 ** GLOBAL vdd
 Xand3@0 A B C Full Project2__and3
+Xand3@1 net@265 net@266 net@269 net@245 Project2__and3
 Xfull_add@0 C net@249 gnd net@158 C_next Project2__full_adder
 Xfull_add@1 B net@245 net@158 net@163 B_next Project2__full_adder
 Xfull_add@2 A net@245 net@163 full_add@2_Cout A_next Project2__full_adder
 XnandBase@0 net@198 D net@199 Project1__nandBaseline
+XnandBase@1 net@266 Full E Project1__nandBaseline
+XnandBase@2 net@269 Empty D Project1__nandBaseline
 Xnor3@0 A B C Empty Project2__nor3
-XnotBasel@3 net@198 net@245 Project1__notBaseline
+XnotBasel@3 net@198 net@265 Project1__notBaseline
 XnotBasel@4 E net@199 Project1__notBaseline
 XxorPass@0 net@249 D E Project1__xorPass
 .ENDS Project2__size_logic
@@ -205,10 +208,12 @@ Xregister@2 Clk net@19 net@49 HW7__register
 Xregister@3 Clk net@257 net@54 HW7__register
 Xregister@4 Clk net@9 net@59 HW7__register
 Xregister@5 Clk net@12 net@64 HW7__register
-Xregister@6 Clk net@266 net@69 HW7__register
-Xregister@7 Clk net@2 net@74 HW7__register
-Xregister@8 Clk net@5 net@79 HW7__register
-Xsize_log@0 net@69 net@266 net@74 net@2 net@79 net@5 D_En E_En Empty Full Project2__size_logic
+Xregister@6 Clk net@266 SA HW7__register
+Xregister@7 Clk net@2 SB HW7__register
+Xregister@8 Clk net@5 SC HW7__register
+Xregister@9 Clk full_next Full HW7__register
+Xregister@10 Clk empty_next Empty HW7__register
+Xsize_log@0 SA net@266 SB net@2 SC net@5 D_En E_En empty_next full_next Project2__size_logic
 Xwide_not@1 net@228 DP_A Project2__wide_not
 Xwide_not@6 net@232 DP_B Project2__wide_not
 Xwide_not@7 net@235 DP_C Project2__wide_not
