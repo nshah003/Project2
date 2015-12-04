@@ -1,7 +1,7 @@
 *** SPICE deck for cell memory_core_test{sch} from library Project2
 *** Created on Thu Dec 03, 2015 14:08:13
 *** Last revised on Fri Dec 04, 2015 02:20:37
-*** Written on Fri Dec 04, 2015 13:04:10 by Electric VLSI Design System, version 9.06
+*** Written on Fri Dec 04, 2015 14:09:01 by Electric VLSI Design System, version 9.06
 *** Layout tech: mocmos, foundry MOSIS
 *** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
 * Model cards are described in this file:
@@ -191,30 +191,30 @@ XxorPass@0 net@296 D E Project1__xorPass
 .SUBCKT Project2__control_logic Clk D D_En DP_A DP_B DP_C E E_En Empty EP_A EP_B EP_C Full
 ** GLOBAL gnd
 ** GLOBAL vdd
-Xdeq_logi@0 net@39 net@246 net@44 net@16 net@49 net@19 D_En Project2__deq_logic
-Xenq_logi@0 net@54 net@257 net@59 net@9 net@64 net@12 E_En Project2__enq_logic
-XnorBasel@0 D_En net@107 Empty Project1__norBaseline
-XnorBasel@1 E_En net@106 Full Project1__norBaseline
+Xdeq_logi@0 DPA net@246 DPB net@16 DPC net@19 D_En Project2__deq_logic
+Xenq_logi@0 EPA net@257 EPB net@9 EPC net@12 E_En Project2__enq_logic
+XnorBasel@0 D_En net@107 emty Project1__norBaseline
+XnorBasel@1 E_En net@106 ful Project1__norBaseline
 XnotBasel@0 E net@106 Project1__notBaseline
 XnotBasel@1 D net@107 Project1__notBaseline
-XnotBasel@2 net@39 net@228 Project1__notBaseline
-XnotBasel@3 net@44 net@232 Project1__notBaseline
-XnotBasel@4 net@49 net@235 Project1__notBaseline
-XnotBasel@5 net@54 net@240 Project1__notBaseline
-XnotBasel@6 net@59 net@241 Project1__notBaseline
-XnotBasel@7 net@64 net@242 Project1__notBaseline
-Xregister@0 Clk net@246 net@39 HW7__register
-Xregister@1 Clk net@16 net@44 HW7__register
-Xregister@2 Clk net@19 net@49 HW7__register
-Xregister@3 Clk net@257 net@54 HW7__register
-Xregister@4 Clk net@9 net@59 HW7__register
-Xregister@5 Clk net@12 net@64 HW7__register
+XnotBasel@2 DPA net@228 Project1__notBaseline
+XnotBasel@3 DPB net@232 Project1__notBaseline
+XnotBasel@4 DPC net@235 Project1__notBaseline
+XnotBasel@5 EPA net@240 Project1__notBaseline
+XnotBasel@6 EPB net@241 Project1__notBaseline
+XnotBasel@7 EPC net@242 Project1__notBaseline
+Xregister@0 Clk net@246 DPA HW7__register
+Xregister@1 Clk net@16 DPB HW7__register
+Xregister@2 Clk net@19 DPC HW7__register
+Xregister@3 Clk net@257 EPA HW7__register
+Xregister@4 Clk net@9 EPB HW7__register
+Xregister@5 Clk net@12 EPC HW7__register
 Xregister@6 Clk net@266 SA HW7__register
 Xregister@7 Clk net@2 SB HW7__register
 Xregister@8 Clk net@5 SC HW7__register
-Xregister@9 Clk full_next Full HW7__register
-Xregister@10 Clk empty_next Empty HW7__register
-Xsize_log@0 SA net@266 SB net@2 SC net@5 D_En E_En empty_next full_next Project2__size_logic
+Xregister@9 Clk Full ful HW7__register
+Xregister@10 Clk Empty emty HW7__register
+Xsize_log@0 SA net@266 SB net@2 SC net@5 D_En E_En Empty Full Project2__size_logic
 Xwide_not@1 net@228 DP_A Project2__wide_not
 Xwide_not@6 net@232 DP_B Project2__wide_not
 Xwide_not@7 net@235 DP_C Project2__wide_not
