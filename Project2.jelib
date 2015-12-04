@@ -673,7 +673,7 @@ EFull||D5G2;|pin@6||O
 X
 
 # Cell control_logic;1{sch}
-Ccontrol_logic;1{sch}||schematic|1449003291116|1449256104770|
+Ccontrol_logic;1{sch}||schematic|1449003291116|1449253980254|
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NOff-Page|conn@0||24|18||||
 NOff-Page|conn@1||24|12||||
@@ -805,8 +805,8 @@ Awire|EPC|D5G1;||0|pin@42||7|-1|pin@43||-20|-1
 Awire|SA|D5G1;||0|pin@46||5|-29|pin@47||-18|-29
 Awire|SB|D5G1;||0|pin@50||6|-28|pin@51||-19|-28
 Awire|SC|D5G1;||0|pin@54||7|-27|pin@55||-20|-27
-Awire|emty|D5G1;||1800|register@10|out|4|-57|pin@66||13|-57
-Awire|ful|D5G1;||1800|register@9|out|4|-51|pin@68||15|-51
+Awire|empty|D5G1;||1800|register@10|out|4|-57|pin@66||13|-57
+Awire|full|D5G1;||1800|register@9|out|4|-51|pin@68||15|-51
 Awire|net@2|||2700|pin@0||-6|-38|pin@1||-6|-34
 Awire|net@5|||2700|pin@2||-8|-44|pin@3||-8|-36
 Awire|net@9|||2700|pin@4||-6|-12|pin@5||-6|-8
