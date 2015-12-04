@@ -1,7 +1,7 @@
 *** SPICE deck for cell memory_core_test{sch} from library Project2
 *** Created on Thu Dec 03, 2015 14:08:13
 *** Last revised on Fri Dec 04, 2015 02:20:37
-*** Written on Fri Dec 04, 2015 03:49:51 by Electric VLSI Design System, version 9.06
+*** Written on Fri Dec 04, 2015 13:04:10 by Electric VLSI Design System, version 9.06
 *** Layout tech: mocmos, foundry MOSIS
 *** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
 * Model cards are described in this file:
@@ -262,8 +262,8 @@ Xword_cel@7 BL5_i BL6_i BL7_i BL8_i BLB5_i BLB6_i BLB7_i BLB8_i R_WL4 W_WL4 Proj
 *** SUBCIRCUIT Project2__precharge FROM CELL precharge{sch}
 .SUBCKT Project2__precharge BL BL_B Clk_B
 ** GLOBAL vdd
-Mpmos@0 vdd Clk_B BL_B vdd P L=0.022U W=2.2U
-Mpmos@1 vdd Clk_B BL vdd P L=0.022U W=2.2U
+Mpmos@0 vdd Clk_B BL_B vdd P L=0.022U W=0.44U
+Mpmos@1 vdd Clk_B BL vdd P L=0.022U W=0.44U
 .ENDS Project2__precharge
 
 *** SUBCIRCUIT Project2__precharge_word FROM CELL precharge_word{sch}
