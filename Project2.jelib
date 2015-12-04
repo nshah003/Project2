@@ -2400,7 +2400,7 @@ EClk_B||D5G2;|pin@2||I
 X
 
 # Cell precharge;1{sch}
-Cprecharge;1{sch}||schematic|1447977554098|1447977913481|
+Cprecharge;1{sch}||schematic|1447977554098|1449203561013|
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NOff-Page|conn@0||0|6|||RRR|
 NOff-Page|conn@1||-5|-2|||R|
@@ -2408,8 +2408,8 @@ NOff-Page|conn@2||5|-2|||R|
 NWire_Pin|pin@0||-5|10||||
 NWire_Pin|pin@1||5|10||||
 NWire_Pin|pin@2||0|3||||
-NTransistor|pmos@0||3|3|||R|2|ATTR_length(D5G0.5;X-0.5;Y-1;)S1|ATTR_width(D5G1;X0.5;Y-1;)S1
-NTransistor|pmos@1||-3|3|||XR|2|ATTR_length(D5G0.5;X-0.5;Y-1;)S1|ATTR_width(D5G1;X0.5;Y-1;)S1
+NTransistor|pmos@0||3|3|||R|2|ATTR_length(D5G0.5;X-0.5;Y-1;)S1|ATTR_width(D5G1;X0.5;Y-1;)S20
+NTransistor|pmos@1||-3|3|||XR|2|ATTR_length(D5G0.5;X-0.5;Y-1;)S1|ATTR_width(D5G1;X0.5;Y-1;)S20
 NPower|pwr@0||0|10||||
 Awire|net@1|||0|pwr@0||0|10|pin@0||-5|10
 Awire|net@2|||900|pin@0||-5|10|pmos@1|d|-5|5

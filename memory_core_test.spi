@@ -1,7 +1,7 @@
 *** SPICE deck for cell memory_core_test{sch} from library Project2
 *** Created on Thu Dec 03, 2015 14:08:13
 *** Last revised on Thu Dec 03, 2015 22:20:03
-*** Written on Thu Dec 03, 2015 22:51:50 by Electric VLSI Design System, version 9.06
+*** Written on Thu Dec 03, 2015 23:33:03 by Electric VLSI Design System, version 9.06
 *** Layout tech: mocmos, foundry MOSIS
 *** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
 * Model cards are described in this file:
@@ -87,12 +87,12 @@ XnandBase@0 net@119 En net@37 Project1__nandBaseline
 XnandBase@1 net@120 En net@36 Project1__nandBaseline
 XnandBase@2 net@121 En net@35 Project1__nandBaseline
 XnandBase@3 net@122 En net@34 Project1__nandBaseline
-XnorBasel@0 net@37 net@0 net@4 Project1__norBaseline
-XnorBasel@1 net@36 B net@4 Project1__norBaseline
-XnorBasel@2 net@35 net@0 C Project1__norBaseline
-XnorBasel@3 net@34 B C Project1__norBaseline
-XnotBasel@0 B net@0 Project1__notBaseline
-XnotBasel@1 C net@4 Project1__notBaseline
+XnorBasel@0 net@37 B C Project1__norBaseline
+XnorBasel@1 net@36 net@14 C Project1__norBaseline
+XnorBasel@2 net@35 B net@23 Project1__norBaseline
+XnorBasel@3 net@34 net@14 net@23 Project1__norBaseline
+XnotBasel@2 C net@23 Project1__notBaseline
+XnotBasel@3 B net@14 Project1__notBaseline
 Xwide_not@4 net@119 WL0 Project2__wide_not
 Xwide_not@5 net@120 WL2 Project2__wide_not
 Xwide_not@6 net@121 WL1 Project2__wide_not
@@ -256,8 +256,8 @@ Xword_cel@7 BL5_i BL6_i BL7_i BL8_i BLB5_i BLB6_i BLB7_i BLB8_i R_WL4 W_WL4 Proj
 *** SUBCIRCUIT Project2__precharge FROM CELL precharge{sch}
 .SUBCKT Project2__precharge BL BL_B Clk_B
 ** GLOBAL vdd
-Mpmos@0 vdd Clk_B BL_B vdd P L=0.022U W=0.022U
-Mpmos@1 vdd Clk_B BL vdd P L=0.022U W=0.022U
+Mpmos@0 vdd Clk_B BL_B vdd P L=0.022U W=0.44U
+Mpmos@1 vdd Clk_B BL vdd P L=0.022U W=0.44U
 .ENDS Project2__precharge
 
 *** SUBCIRCUIT Project2__precharge_word FROM CELL precharge_word{sch}
