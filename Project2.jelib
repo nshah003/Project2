@@ -1275,7 +1275,7 @@ Awire|net@35|||900|VPWL@0|minus|-30|1|pin@17||-30|-11
 X
 
 # Cell full_adder;1{ic}
-Cfull_adder;1{ic}||artwork|1449113299863|1449113337322|E
+Cfull_adder;1{ic}||artwork|1449113299863|1449235310622|E
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NBox|art@1||0|0|6|6||
 Nschematic:Wire_Pin|pin@0||3|1||||
@@ -1283,6 +1283,7 @@ Nschematic:Wire_Pin|pin@1||3|-1||||
 Nschematic:Wire_Pin|pin@2||-3|2||||
 Nschematic:Wire_Pin|pin@3||-3|0||||
 Nschematic:Wire_Pin|pin@4||-3|-2||||
+Ngeneric:Invisible-Pin|pin@5||0|0|||||ART_message(D5G1;)S[full,adder]
 EA||D5G2;|pin@2||I
 EB||D5G2;|pin@3||I
 ECin||D5G2;|pin@4||I
@@ -2469,7 +2470,7 @@ EClk_B||D5G2;|pin@2||I
 X
 
 # Cell precharge;1{sch}
-Cprecharge;1{sch}||schematic|1447977554098|1449205746984|
+Cprecharge;1{sch}||schematic|1447977554098|1449235931428|
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NOff-Page|conn@0||0|6|||RRR|
 NOff-Page|conn@1||-5|-2|||R|
@@ -2477,8 +2478,8 @@ NOff-Page|conn@2||5|-2|||R|
 NWire_Pin|pin@0||-5|10||||
 NWire_Pin|pin@1||5|10||||
 NWire_Pin|pin@2||0|3||||
-NTransistor|pmos@0||3|3|||R|2|ATTR_length(D5G0.5;X-0.5;Y-1;)S1|ATTR_width(D5G1;X0.5;Y-1;)S100
-NTransistor|pmos@1||-3|3|||XR|2|ATTR_length(D5G0.5;X-0.5;Y-1;)S1|ATTR_width(D5G1;X0.5;Y-1;)S100
+NTransistor|pmos@0||3|3|||R|2|ATTR_length(D5G0.5;X-0.5;Y-1;)S1|ATTR_width(D5G1;X0.5;Y-1;)S20
+NTransistor|pmos@1||-3|3|||XR|2|ATTR_length(D5G0.5;X-0.5;Y-1;)S1|ATTR_width(D5G1;X0.5;Y-1;)S20
 NPower|pwr@0||0|10||||
 Awire|net@1|||0|pwr@0||0|10|pin@0||-5|10
 Awire|net@2|||900|pin@0||-5|10|pmos@1|d|-5|5
