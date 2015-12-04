@@ -346,8 +346,8 @@ Xwide_not@23 net@287 net@279 Project2__wide_not
 .global gnd vdd
 
 *** TOP LEVEL CELL: memory_core_test{sch}
-VVPWL@0 Enq gnd pwl (0ns 0V 1.8ns 0V 1.9ns 1V 16.6ns 1V 16.7ns 0V) DC 0V AC 0V 0
-VVPWL@1 Deq gnd pwl (0ns 0V 17.8ns 0V 17.9ns 1V 32.6ns 1V 32.7ns 0V) DC 0V AC 0V 0
+VVPWL@0 Enq gnd pwl (0ns 0V 1.8ns 0V 1.9ns 1V 18.6ns 1V 18.7ns 0V) DC 0V AC 0V 0
+VVPWL@1 Deq gnd pwl (0ns 0V 19.8ns 0V 19.9ns 1V 36.6ns 1V 36.7ns 0V) DC 0V AC 0V 0
 VVPWL@2 I3 gnd pwl (0ns 0V 15.8ns 0V 15.9ns 1V 17.6ns 1V 17.7ns 0V) DC 0V AC 0V 0
 VVPWL@3 I2 gnd pwl (0ns 0V 7.8ns 0V 7.9ns 1V 15.6ns 1V 15.7ns 0V) DC 0V AC 0V 0
 VVPWL@4 I1 gnd pwl (0ns 0V 3.8ns 0V 3.9ns 1V 7.6ns 1V 7.7ns 0V 11.8ns 0V 11.9ns 1V 15.6ns 1V 15.7ns 0V) DC 0V AC 0V 0
