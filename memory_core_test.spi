@@ -1,7 +1,7 @@
 *** SPICE deck for cell memory_core_test{sch} from library Project2
 *** Created on Thu Dec 03, 2015 14:08:13
-*** Last revised on Thu Dec 03, 2015 20:18:26
-*** Written on Thu Dec 03, 2015 22:19:37 by Electric VLSI Design System, version 9.06
+*** Last revised on Thu Dec 03, 2015 22:20:03
+*** Written on Thu Dec 03, 2015 22:51:50 by Electric VLSI Design System, version 9.06
 *** Layout tech: mocmos, foundry MOSIS
 *** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
 * Model cards are described in this file:
@@ -80,31 +80,23 @@ Mpmos@0 vdd A O vdd P L=0.022U W=0.088U
 .ENDS Project2__wide_not
 
 *** SUBCIRCUIT Project2__2_4_decoder FROM CELL 2_4_decoder{sch}
-.SUBCKT Project2__2_4_decoder B C Clk En WL0 WL1 WL2 WL3
+.SUBCKT Project2__2_4_decoder B C En WL0 WL1 WL2 WL3
 ** GLOBAL gnd
 ** GLOBAL vdd
-X_ net@75 net@79 Project1__notBaseline
-XnandBase@0 net@73 En net@37 Project1__nandBaseline
-XnandBase@1 net@74 En net@36 Project1__nandBaseline
-XnandBase@2 net@75 En net@35 Project1__nandBaseline
-XnandBase@3 net@76 En net@34 Project1__nandBaseline
-XnandBase@4 net@93 Clk net@77 Project1__nandBaseline
-XnandBase@5 net@94 Clk net@78 Project1__nandBaseline
-XnandBase@6 net@95 Clk net@79 Project1__nandBaseline
-XnandBase@7 net@99 Clk net@80 Project1__nandBaseline
+XnandBase@0 net@119 En net@37 Project1__nandBaseline
+XnandBase@1 net@120 En net@36 Project1__nandBaseline
+XnandBase@2 net@121 En net@35 Project1__nandBaseline
+XnandBase@3 net@122 En net@34 Project1__nandBaseline
 XnorBasel@0 net@37 net@0 net@4 Project1__norBaseline
 XnorBasel@1 net@36 B net@4 Project1__norBaseline
 XnorBasel@2 net@35 net@0 C Project1__norBaseline
 XnorBasel@3 net@34 B C Project1__norBaseline
 XnotBasel@0 B net@0 Project1__notBaseline
 XnotBasel@1 C net@4 Project1__notBaseline
-XnotBasel@2 net@73 net@77 Project1__notBaseline
-XnotBasel@3 net@74 net@78 Project1__notBaseline
-XnotBasel@5 net@76 net@80 Project1__notBaseline
-Xwide_not@4 net@93 WL0 Project2__wide_not
-Xwide_not@5 net@94 WL2 Project2__wide_not
-Xwide_not@6 net@95 WL1 Project2__wide_not
-Xwide_not@7 net@99 WL3 Project2__wide_not
+Xwide_not@4 net@119 WL0 Project2__wide_not
+Xwide_not@5 net@120 WL2 Project2__wide_not
+Xwide_not@6 net@121 WL1 Project2__wide_not
+Xwide_not@7 net@122 WL3 Project2__wide_not
 .ENDS Project2__2_4_decoder
 
 *** SUBCIRCUIT Project1__xorPass FROM CELL Project1:xorPass{sch}
@@ -293,13 +285,12 @@ Mpmos@2 Out net@16 net@3 vdd P L=0.022U W=0.044U
 .SUBCKT Project2__memory_core Clk_fast Clk_slow Deq Empty Enq Full I0 I1 I2 I3 O0 O1 O2 O3
 ** GLOBAL gnd
 ** GLOBAL vdd
-X_2_4_deco@0 DB DC net@262 DEn net@16 net@17 net@18 net@19 Project2__2_4_decoder
-X_2_4_deco@1 EB EC Clk_slow EEn net@20 net@21 net@22 net@23 Project2__2_4_decoder
+X_2_4_deco@0 DB DC DEn RWL0 RWL1 RWL2 RWL3 Project2__2_4_decoder
+X_2_4_deco@1 EB EC EEn WWL0 WWL1 WWL2 WWL3 Project2__2_4_decoder
 Xcontrol_@0 Clk_slow Deq DEn DA DB DC Enq EEn Empty EA EB EC Full Project2__control_logic
-Xmemory_b@0 WBL3 WBL2 WBL1 WBL0 WBL7 WBL6 WBL5 WBL4 RBL3 RBL2 RBL1 RBL0 RBL7 RBL6 RBL5 RBL4 net@16 net@17 net@18 net@19 net@20 net@21 net@22 net@23 Project2__memory_block
+Xmemory_b@0 WBL3 WBL2 WBL1 WBL0 WBL7 WBL6 WBL5 WBL4 RBL3 RBL2 RBL1 RBL0 RBL7 RBL6 RBL5 RBL4 RWL0 RWL1 RWL2 RWL3 WWL0 WWL1 WWL2 WWL3 Project2__memory_block
 XnotBasel@0 EA net@66 Project1__notBaseline
 XnotBasel@1 DA net@97 Project1__notBaseline
-XnotBasel@2 Clk_slow net@262 Project1__notBaseline
 Xprecharg@0 WBL3 WBL2 WBL1 WBL0 RBL3 RBL2 RBL1 RBL0 Clk_fast Project2__precharge_word
 Xprecharg@1 WBL7 WBL6 WBL5 WBL4 RBL7 RBL6 RBL5 RBL4 Clk_fast Project2__precharge_word
 Xtri_stat@1 I3 net@66 net@222 Project2__tri_state_inverter
