@@ -346,12 +346,12 @@ Xwide_not@23 net@287 net@279 Project2__wide_not
 .global gnd vdd
 
 *** TOP LEVEL CELL: memory_core_test{sch}
-VVPWL@0 Enq gnd pwl (0ns 0V .8ns 0V .9ns 1V 8.6ns 1V 8.7ns 0V) DC 0V AC 0V 0
-VVPWL@1 Deq gnd pwl (0ns 0V 8.8ns 0V 8.9ns 1V 16.6ns 1V 16.7ns 0V) DC 0V AC 0V 0
-VVPWL@2 I3 gnd pwl (0ns 0V 7.8ns 0V 7.9ns 1V 8.6ns 1V 8.7ns 0V) DC 0V AC 0V 0
-VVPWL@3 I2 gnd pwl (0ns 0V 3.8ns 0V 3.9ns 1V 7.6ns 1V 7.7ns 0V) DC 0V AC 0V 0
-VVPWL@4 I1 gnd pwl (0ns 0V 2.8ns 0V 2.9ns 1V 4.6ns 1V 4.7ns 0V 6.8ns 0V 6.9ns 1V 8.6ns 1V 8.7ns 0V) DC 0V AC 0V 0
-VVPWL@5 I0 gnd pwl (0ns 0V .8ns 0V .9ns 1V 1.6ns 1V 1.7ns 0V 2.8ns 0V 2.9ns 1V 3.6ns 1V 3.7ns 0V 4.8ns 0V 4.9ns 1V 5.6ns 1V 5.7ns 0V 6.8ns 0V 6.9ns 1V 7.6ns 1V 7.7ns 0V) DC 0V AC 0V 0
+VVPWL@0 Enq gnd pwl (0ns 0V 1.8ns 0V 1.9ns 1V 16.6ns 1V 16.7ns 0V) DC 0V AC 0V 0
+VVPWL@1 Deq gnd pwl (0ns 0V 17.8ns 0V 17.9ns 1V 32.6ns 1V 32.7ns 0V) DC 0V AC 0V 0
+VVPWL@2 I3 gnd pwl (0ns 0V 15.8ns 0V 15.9ns 1V 17.6ns 1V 17.7ns 0V) DC 0V AC 0V 0
+VVPWL@3 I2 gnd pwl (0ns 0V 7.8ns 0V 7.9ns 1V 15.6ns 1V 15.7ns 0V) DC 0V AC 0V 0
+VVPWL@4 I1 gnd pwl (0ns 0V 3.8ns 0V 3.9ns 1V 7.6ns 1V 7.7ns 0V 11.8ns 0V 11.9ns 1V 15.6ns 1V 15.7ns 0V) DC 0V AC 0V 0
+VVPWL@5 I0 gnd pwl (0ns 0V 1.8ns 0V 1.9ns 1V 3.6ns 1V 3.7ns 0V 5.8ns 0V 5.9ns 1V 7.6ns 1V 7.7ns 0V 9.8ns 0V 9.9ns 1V 11.6ns 1V 11.7ns 0V 13.8ns 0V 13.9ns 1V 15.6ns 1V 15.7ns 0V) DC 0V AC 0V 0
 VVPulse@0 Clk_double_freq gnd pulse (0 1V 0ns 0ps 0ps .5ns 1ns) DC 0V AC 0V 0
 VV_Generi@0 vdd gnd DC 1 AC 0
 Xclock_di@0 Clk_double_freq Clk Project2__clock_div
