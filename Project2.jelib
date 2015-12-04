@@ -610,6 +610,35 @@ EClk|Clk_fast|D5G2;|conn@0|a|I
 EClk_slow||D5G2;|conn@1|y|O
 X
 
+# Cell clock_div_test;1{sch}
+Cclock_div_test;1{sch}||schematic|1449221702914|1449222135020|
+IspicepartsS3:VPulse;1{ic}|VPulse@1||-7|-1|||D5G4;|ATTR_ACM(D6G0.5;NPX3.5;Y-2;)S0V|ATTR_ACP(D6G0.5;NPX3.5;Y-2.5;)I0|ATTR_PW(D6G0.5;NPX3.5;Y-1;)S.5ns|ATTR_Per(D6G0.5;NPX3.5;Y-1.5;)S1ns|ATTR_TD(D6G0.5;NPX3.5;Y0.5;)S0ns|ATTR_TF(D6G0.5;NPX3.5;Y-0.5;)S0ps|ATTR_TR(D6G0.5;NPX3.5;)S0ps|ATTR_V1(D6G0.5;NPX3.5;Y1.5;)I0|ATTR_V2(D6G0.5;NPX3.5;Y1;)S1V|ATTR_VDC(D6G0.5;NPX3.5;Y-3;)S0V
+IspicepartsS3:V_Generic;1{ic}|V_Generi@0||-12|1|||D5G4;|ATTR_Voltage(D6G0.5;PX-1.5;)SDC 1 AC 0
+Ngeneric:Facet-Center|art@0||0|0||||AV
+Iclock_div;1{ic}|clock_di@0||-4|8|||D5G4;
+NGround|gnd@0||-12|-7||||
+Imemory_core;1{ic}|memory_c@0||6|1|||D5G4;
+NWire_Pin|pin@0||9|8||||
+NWire_Pin|pin@1||3|10||||
+NWire_Pin|pin@2||-7|10||||
+NWire_Pin|pin@3||-7|8||||
+NWire_Pin|pin@4||-7|-2||||
+NWire_Pin|pin@5||-12|-2||||
+NPower|pwr@0||-12|10||||
+Awire|net@0|||2700|V_Generi@0|plus|-12|5|pwr@0||-12|10
+Awire|net@2|||1800|clock_di@0|Clk_slow|-2|8|pin@0||9|8
+Awire|net@3|||900|pin@0||9|8|memory_c@0|Clk_slow|9|5
+Awire|net@4|||2700|memory_c@0|Clk_fast|3|5|pin@1||3|10
+Awire|net@5|||0|pin@1||3|10|pin@2||-7|10
+Awire|net@6|||900|pin@2||-7|10|pin@3||-7|8
+Awire|net@7|||1800|pin@3||-7|8|clock_di@0|Clk_fast|-6|8
+Awire|net@8|||2700|VPulse@1|plus|-7|3|pin@3||-7|8
+Awire|net@9|||900|VPulse@1|minus|-7|-1|pin@4||-7|-2
+Awire|net@10|||900|V_Generi@0|minus|-12|1|pin@5||-12|-2
+Awire|net@11|||900|pin@5||-12|-2|gnd@0||-12|-5
+Awire|net@12|||0|pin@4||-7|-2|pin@5||-12|-2
+X
+
 # Cell control_logic;1{ic}
 Ccontrol_logic;1{ic}||artwork|1449003974202|1449004577975|E
 Ngeneric:Facet-Center|art@0||0|0||||AV
