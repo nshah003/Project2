@@ -1,7 +1,7 @@
 *** SPICE deck for cell memory_core_test{sch} from library Project2
 *** Created on Thu Dec 03, 2015 14:08:13
 *** Last revised on Fri Dec 04, 2015 17:26:53
-*** Written on Fri Dec 04, 2015 18:12:27 by Electric VLSI Design System, version 9.06
+*** Written on Fri Dec 04, 2015 19:54:45 by Electric VLSI Design System, version 9.06
 *** Layout tech: mocmos, foundry MOSIS
 *** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
 * Model cards are described in this file:
@@ -312,8 +312,13 @@ Mpmos@0 vdd A O vdd P L=0.022U W=0.22U
 X_2_4_deco@0 DB DC net@341 DEn RWL0 RWL1 RWL2 RWL3 Project2__2_4_decoder
 X_2_4_deco@1 EB EC net@341 EEn WWL0 WWL1 WWL2 WWL3 Project2__2_4_decoder
 VVPulse@2 net@341 gnd pulse (0 1V 0.05ns 0ps 0ps 0.4ns 1ns) DC 0V AC 0V 0
+VVPulse@3 net@398 gnd pulse (0 1V 0ns 0ps 0ps .4ns 1ns) DC 0V AC 0V 0
 Xcontrol_@0 Clk_slow Deq DEn DA DB DC Enq EEn Empty EA EB EC Full Project2__control_logic
 Xmemory_b@0 WBL3 WBL2 WBL1 WBL0 WBL7 WBL6 WBL5 WBL4 RBL3 RBL2 RBL1 RBL0 RBL7 RBL6 RBL5 RBL4 RWL0 RWL1 RWL2 RWL3 WWL0 WWL1 WWL2 WWL3 Project2__memory_block
+Xnand_lat@0 net@398 net@84 O3 HW7__nand_latch
+Xnand_lat@1 net@398 net@87 O2 HW7__nand_latch
+Xnand_lat@2 net@398 net@90 O1 HW7__nand_latch
+Xnand_lat@3 net@398 net@93 O0 HW7__nand_latch
 XnotBasel@0 EA net@66 Project1__notBaseline
 XnotBasel@1 DA net@97 Project1__notBaseline
 Xprecharg@0 WBL3 WBL2 WBL1 WBL0 RBL3 RBL2 RBL1 RBL0 Clk_fast_1 Project2__precharge_word
@@ -326,14 +331,14 @@ Xtri_stat@5 net@155 EA WBL7 Project2__tri_state_inverter
 Xtri_stat@6 net@158 EA WBL6 Project2__tri_state_inverter
 Xtri_stat@7 net@161 EA WBL5 Project2__tri_state_inverter
 Xtri_stat@8 net@164 EA WBL4 Project2__tri_state_inverter
-Xtri_stat@9 RBL3 net@97 O3 Project2__tri_state_inverter
-Xtri_stat@10 RBL2 net@97 O2 Project2__tri_state_inverter
-Xtri_stat@11 RBL1 net@97 O1 Project2__tri_state_inverter
-Xtri_stat@12 RBL0 net@97 O0 Project2__tri_state_inverter
-Xtri_stat@13 RBL7 DA O3 Project2__tri_state_inverter
-Xtri_stat@14 RBL6 DA O2 Project2__tri_state_inverter
-Xtri_stat@15 RBL5 DA O1 Project2__tri_state_inverter
-Xtri_stat@16 RBL4 DA O0 Project2__tri_state_inverter
+Xtri_stat@9 RBL3 net@97 net@84 Project2__tri_state_inverter
+Xtri_stat@10 RBL2 net@97 net@87 Project2__tri_state_inverter
+Xtri_stat@11 RBL1 net@97 net@90 Project2__tri_state_inverter
+Xtri_stat@12 RBL0 net@97 net@93 Project2__tri_state_inverter
+Xtri_stat@13 RBL7 DA net@84 Project2__tri_state_inverter
+Xtri_stat@14 RBL6 DA net@87 Project2__tri_state_inverter
+Xtri_stat@15 RBL5 DA net@90 Project2__tri_state_inverter
+Xtri_stat@16 RBL4 DA net@93 Project2__tri_state_inverter
 Xvwide_no@0 I3 net@155 Project2__vwide_not
 Xvwide_no@1 I2 net@158 Project2__vwide_not
 Xvwide_no@2 I1 net@161 Project2__vwide_not
