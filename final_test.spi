@@ -1,19 +1,11 @@
 *** SPICE deck for cell final_test{sch} from library Project2
 *** Created on Wed Dec 02, 2015 19:50:23
-*** Last revised on Thu Dec 03, 2015 13:58:22
-*** Written on Thu Dec 03, 2015 14:04:11 by Electric VLSI Design System, version 9.06
+*** Last revised on Fri Dec 04, 2015 19:38:10
+*** Written on Fri Dec 04, 2015 19:38:49 by Electric VLSI Design System, version 9.06
 *** Layout tech: mocmos, foundry MOSIS
 *** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
 * Model cards are described in this file:
 .include /Users/neilnshah/Desktop/JUNIOR-YEAR/Fall15/Courses/ESE370/Project2/Project2/22nm_HP.pm
-
-*** SUBCIRCUIT Project1__notBaseline FROM CELL Project1:notBaseline{sch}
-.SUBCKT Project1__notBaseline in out
-** GLOBAL gnd
-** GLOBAL vdd
-Mnmos@0 out in gnd gnd N L=0.022U W=0.022U
-Mpmos@0 vdd in out vdd P L=0.022U W=0.022U
-.ENDS Project1__notBaseline
 
 *** SUBCIRCUIT Project1__nandBaseline FROM CELL Project1:nandBaseline{sch}
 .SUBCKT Project1__nandBaseline out x y
@@ -24,6 +16,14 @@ Mnmos@1 net@13 y gnd gnd N L=0.022U W=0.022U
 Mpmos@0 vdd x out vdd P L=0.022U W=0.022U
 Mpmos@1 vdd y out vdd P L=0.022U W=0.022U
 .ENDS Project1__nandBaseline
+
+*** SUBCIRCUIT Project1__notBaseline FROM CELL Project1:notBaseline{sch}
+.SUBCKT Project1__notBaseline in out
+** GLOBAL gnd
+** GLOBAL vdd
+Mnmos@0 out in gnd gnd N L=0.022U W=0.022U
+Mpmos@0 vdd in out vdd P L=0.022U W=0.022U
+.ENDS Project1__notBaseline
 
 *** SUBCIRCUIT HW7__nand_latch FROM CELL HW7:nand_latch{sch}
 .SUBCKT HW7__nand_latch clock in out
@@ -43,23 +43,6 @@ Xnand_lat@0 clock mid out HW7__nand_latch
 Xnand_lat@1 net@17 in mid HW7__nand_latch
 XnotBasel@0 clock net@17 Project1__notBaseline
 .ENDS HW7__register
-
-*** SUBCIRCUIT Project2__vwide_not FROM CELL vwide_not{sch}
-.SUBCKT Project2__vwide_not A O
-** GLOBAL gnd
-** GLOBAL vdd
-Mnmos@0 O A gnd gnd N L=0.022U W=0.22U
-Mpmos@0 vdd A O vdd P L=0.022U W=0.22U
-.ENDS Project2__vwide_not
-
-*** SUBCIRCUIT Project2__clock_div FROM CELL clock_div{sch}
-.SUBCKT Project2__clock_div Clk_fast Clk_slow
-** GLOBAL gnd
-** GLOBAL vdd
-XnotBasel@0 net@7 net@4 Project1__notBaseline
-Xregister@0 Clk_fast net@4 net@7 HW7__register
-Xvwide_no@0 net@4 Clk_slow Project2__vwide_not
-.ENDS Project2__clock_div
 
 *** SUBCIRCUIT Project2__I_register FROM CELL I_register{sch}
 .SUBCKT Project2__I_register clock dequeue enqueue I0 I1 I2 I3 O0 O1 O2 O3 o_dequeue o_enqueue
@@ -85,6 +68,14 @@ Xregister@4 clock I1 O1 HW7__register
 Xregister@5 clock I0 O0 HW7__register
 .ENDS Project2__O_register
 
+*** SUBCIRCUIT Project2__and2 FROM CELL and2{sch}
+.SUBCKT Project2__and2 A B O
+** GLOBAL gnd
+** GLOBAL vdd
+XnandBase@0 net@0 A B Project1__nandBaseline
+XnotBasel@0 net@0 O Project1__notBaseline
+.ENDS Project2__and2
+
 *** SUBCIRCUIT Project1__norBaseline FROM CELL Project1:norBaseline{sch}
 .SUBCKT Project1__norBaseline out x y
 ** GLOBAL gnd
@@ -104,23 +95,24 @@ Mpmos@0 vdd A O vdd P L=0.022U W=0.088U
 .ENDS Project2__wide_not
 
 *** SUBCIRCUIT Project2__2_4_decoder FROM CELL 2_4_decoder{sch}
-.SUBCKT Project2__2_4_decoder B C En WL0 WL1 WL2 WL3
+.SUBCKT Project2__2_4_decoder B C Clk En WL0 WL1 WL2 WL3
 ** GLOBAL gnd
 ** GLOBAL vdd
-XnandBase@0 net@64 En net@37 Project1__nandBaseline
-XnandBase@1 net@63 En net@36 Project1__nandBaseline
-XnandBase@2 net@62 En net@35 Project1__nandBaseline
-XnandBase@3 net@61 En net@34 Project1__nandBaseline
-XnorBasel@0 net@37 net@0 net@4 Project1__norBaseline
-XnorBasel@1 net@36 B net@4 Project1__norBaseline
-XnorBasel@2 net@35 net@0 C Project1__norBaseline
-XnorBasel@3 net@34 B C Project1__norBaseline
-XnotBasel@0 B net@0 Project1__notBaseline
-XnotBasel@1 C net@4 Project1__notBaseline
-Xwide_not@0 net@64 WL0 Project2__wide_not
-Xwide_not@1 net@63 WL2 Project2__wide_not
-Xwide_not@2 net@62 WL1 Project2__wide_not
-Xwide_not@3 net@61 WL3 Project2__wide_not
+Xand2@0 Clk En net@43 Project2__and2
+XnandBase@0 net@119 net@43 net@37 Project1__nandBaseline
+XnandBase@1 net@120 net@43 net@36 Project1__nandBaseline
+XnandBase@2 net@121 net@43 net@35 Project1__nandBaseline
+XnandBase@3 net@122 net@43 net@34 Project1__nandBaseline
+XnorBasel@0 net@37 B C Project1__norBaseline
+XnorBasel@1 net@36 net@14 C Project1__norBaseline
+XnorBasel@2 net@35 B net@23 Project1__norBaseline
+XnorBasel@3 net@34 net@14 net@23 Project1__norBaseline
+XnotBasel@2 C net@23 Project1__notBaseline
+XnotBasel@3 B net@14 Project1__notBaseline
+Xwide_not@4 net@119 WL0 Project2__wide_not
+Xwide_not@5 net@120 WL2 Project2__wide_not
+Xwide_not@6 net@121 WL1 Project2__wide_not
+Xwide_not@7 net@122 WL3 Project2__wide_not
 .ENDS Project2__2_4_decoder
 
 *** SUBCIRCUIT Project1__xorPass FROM CELL Project1:xorPass{sch}
@@ -173,9 +165,9 @@ Xfull_add@2 A E net@146 full_add@2_Cout A_next Project2__full_adder
 Mnmos@0 net@2 A net@11 gnd N L=0.022U W=0.022U
 Mnmos@1 net@11 B net@12 gnd N L=0.022U W=0.022U
 Mnmos@2 net@12 C gnd gnd N L=0.022U W=0.022U
-Mnmos@3 O net@2 gnd gnd N L=0.022U W=0.022U
+Mnmos@3 O net@2 gnd gnd N L=0.022U W=0.088U
 Mpmos@0 vdd C net@2 vdd P L=0.022U W=0.022U
-Mpmos@1 vdd net@2 O vdd P L=0.022U W=0.022U
+Mpmos@1 vdd net@2 O vdd P L=0.022U W=0.088U
 Mpmos@2 vdd B net@2 vdd P L=0.022U W=0.022U
 Mpmos@3 vdd A net@2 vdd P L=0.022U W=0.022U
 .ENDS Project2__and3
@@ -192,47 +184,71 @@ Mpmos@1 net@0 B net@1 vdd P L=0.022U W=0.022U
 Mpmos@2 net@1 C O vdd P L=0.022U W=0.022U
 .ENDS Project2__nor3
 
-*** SUBCIRCUIT Project2__size_logic FROM CELL size_logic{sch}
-.SUBCKT Project2__size_logic A A_next B B_next C C_next D E Empty Full
+*** SUBCIRCUIT Project2__nor4 FROM CELL nor4{sch}
+.SUBCKT Project2__nor4 A B C D O
 ** GLOBAL gnd
 ** GLOBAL vdd
-Xand3@0 C_next B_next A_next Full Project2__and3
-Xfull_add@0 C net@249 gnd net@158 C_next Project2__full_adder
-Xfull_add@1 B net@245 net@158 net@163 B_next Project2__full_adder
-Xfull_add@2 A net@245 net@163 full_add@2_Cout A_next Project2__full_adder
+Mnmos@0 O A gnd gnd N L=0.022U W=0.022U
+Mnmos@1 O B gnd gnd N L=0.022U W=0.022U
+Mnmos@2 O C gnd gnd N L=0.022U W=0.022U
+Mnmos@3 O D gnd gnd N L=0.022U W=0.022U
+Mpmos@0 vdd D net@0 vdd P L=0.022U W=0.022U
+Mpmos@1 net@0 C net@1 vdd P L=0.022U W=0.022U
+Mpmos@2 net@1 B net@2 vdd P L=0.022U W=0.022U
+Mpmos@3 net@2 A O vdd P L=0.022U W=0.022U
+.ENDS Project2__nor4
+
+*** SUBCIRCUIT Project2__size_logic FROM CELL size_logic{sch}
+.SUBCKT Project2__size_logic D E Empty Full I0 I1 I2 I3 O0 O1 O2 O3
+** GLOBAL gnd
+** GLOBAL vdd
+Xand3@1 net@265 net@266 net@269 net@245 Project2__and3
+Xand3@2 net@269 net@296 net@266 net@250 Project2__and3
+Xfull_add@0 I0 net@250 gnd net@158 O0 Project2__full_adder
+Xfull_add@1 I1 net@245 net@158 net@163 O1 Project2__full_adder
+Xfull_add@2 I2 net@245 net@163 net@301 O2 Project2__full_adder
+Xfull_add@3 I3 net@245 net@301 full_add@3_Cout O3 Project2__full_adder
 XnandBase@0 net@198 D net@199 Project1__nandBaseline
-Xnor3@0 C_next B_next A_next Empty Project2__nor3
-XnotBasel@3 net@198 net@245 Project1__notBaseline
+XnandBase@1 net@266 Full E Project1__nandBaseline
+XnandBase@2 net@269 Empty D Project1__nandBaseline
+XnandBase@4 net@321 net@348 I3 Project1__nandBaseline
+Xnor3@0 I2 I1 I0 net@348 Project2__nor3
+Xnor4@0 I2 I1 I0 I3 Empty Project2__nor4
+XnotBasel@3 net@198 net@265 Project1__notBaseline
 XnotBasel@4 E net@199 Project1__notBaseline
-XxorPass@0 net@249 D E Project1__xorPass
+XnotBasel@5 net@321 Full Project1__notBaseline
+XxorPass@0 net@296 D E Project1__xorPass
 .ENDS Project2__size_logic
 
 *** SUBCIRCUIT Project2__control_logic FROM CELL control_logic{sch}
 .SUBCKT Project2__control_logic Clk D D_En DP_A DP_B DP_C E E_En Empty EP_A EP_B EP_C Full
 ** GLOBAL gnd
 ** GLOBAL vdd
-Xdeq_logi@0 net@39 net@246 net@44 net@16 net@49 net@19 D_En Project2__deq_logic
-Xenq_logi@0 net@54 net@257 net@59 net@9 net@64 net@12 E_En Project2__enq_logic
-XnorBasel@0 D_En net@107 Empty Project1__norBaseline
-XnorBasel@1 E_En net@106 Full Project1__norBaseline
+Xdeq_logi@0 DPA net@246 DPB net@16 DPC net@19 D_En Project2__deq_logic
+Xenq_logi@0 EPA net@257 EPB net@9 EPC net@12 E_En Project2__enq_logic
+XnorBasel@0 D_En net@107 net@108 Project1__norBaseline
+XnorBasel@1 E_En net@106 net@112 Project1__norBaseline
 XnotBasel@0 E net@106 Project1__notBaseline
 XnotBasel@1 D net@107 Project1__notBaseline
-XnotBasel@2 net@39 net@228 Project1__notBaseline
-XnotBasel@3 net@44 net@232 Project1__notBaseline
-XnotBasel@4 net@49 net@235 Project1__notBaseline
-XnotBasel@5 net@54 net@240 Project1__notBaseline
-XnotBasel@6 net@59 net@241 Project1__notBaseline
-XnotBasel@7 net@64 net@242 Project1__notBaseline
-Xregister@0 Clk net@246 net@39 HW7__register
-Xregister@1 Clk net@16 net@44 HW7__register
-Xregister@2 Clk net@19 net@49 HW7__register
-Xregister@3 Clk net@257 net@54 HW7__register
-Xregister@4 Clk net@9 net@59 HW7__register
-Xregister@5 Clk net@12 net@64 HW7__register
-Xregister@6 Clk net@266 net@69 HW7__register
-Xregister@7 Clk net@2 net@74 HW7__register
-Xregister@8 Clk net@5 net@79 HW7__register
-Xsize_log@0 net@69 net@266 net@74 net@2 net@79 net@5 D_En E_En Empty Full Project2__size_logic
+XnotBasel@2 DPA net@228 Project1__notBaseline
+XnotBasel@3 DPB net@232 Project1__notBaseline
+XnotBasel@4 DPC net@235 Project1__notBaseline
+XnotBasel@5 EPA net@240 Project1__notBaseline
+XnotBasel@6 EPB net@241 Project1__notBaseline
+XnotBasel@7 EPC net@242 Project1__notBaseline
+Xregister@0 Clk net@246 DPA HW7__register
+Xregister@1 Clk net@16 DPB HW7__register
+Xregister@2 Clk net@19 DPC HW7__register
+Xregister@3 Clk net@257 EPA HW7__register
+Xregister@4 Clk net@9 EPB HW7__register
+Xregister@5 Clk net@12 EPC HW7__register
+Xregister@6 Clk net@266 S3 HW7__register
+Xregister@7 Clk net@2 S2 HW7__register
+Xregister@8 Clk net@5 SC HW7__register
+Xregister@9 Clk Full net@112 HW7__register
+Xregister@10 Clk Empty net@108 HW7__register
+Xregister@11 Clk net@291 S0 HW7__register
+Xsize_log@0 D_En E_En Empty Full SC S2 S3 S0 net@5 net@2 net@266 net@291 Project2__size_logic
 Xwide_not@1 net@228 DP_A Project2__wide_not
 Xwide_not@6 net@232 DP_B Project2__wide_not
 Xwide_not@7 net@235 DP_C Project2__wide_not
@@ -245,12 +261,12 @@ Xwide_not@10 net@242 EP_C Project2__wide_not
 .SUBCKT Project2__6TSRAM BL BL_B R_WL W_WL
 ** GLOBAL gnd
 ** GLOBAL vdd
-Mnmos@0 net@2 W_WL BL gnd N L=0.022U W=0.22U
-Mnmos@1 BL_B R_WL net@5 gnd N L=0.022U W=0.022U
-Mnmos@2 net@5 net@2 gnd gnd N L=0.022U W=0.22U
-Mnmos@3 net@2 net@5 gnd gnd N L=0.022U W=0.022U
-Mpmos@0 vdd net@2 net@5 vdd P L=0.022U W=0.22U
-Mpmos@1 vdd net@5 net@2 vdd P L=0.022U W=0.022U
+Mnmos@0 Q W_WL BL gnd N L=0.022U W=0.22U
+Mnmos@1 BL_B R_WL Qnot gnd N L=0.022U W=0.022U
+Mnmos@2 Qnot Q gnd gnd N L=0.022U W=0.22U
+Mnmos@3 Q Qnot gnd gnd N L=0.022U W=0.022U
+Mpmos@0 vdd Q Qnot vdd P L=0.022U W=0.22U
+Mpmos@1 vdd Qnot Q vdd P L=0.022U W=0.022U
 .ENDS Project2__6TSRAM
 
 *** SUBCIRCUIT Project2__word_cell FROM CELL word_cell{sch}
@@ -280,8 +296,8 @@ Xword_cel@7 BL5_i BL6_i BL7_i BL8_i BLB5_i BLB6_i BLB7_i BLB8_i R_WL4 W_WL4 Proj
 *** SUBCIRCUIT Project2__precharge FROM CELL precharge{sch}
 .SUBCKT Project2__precharge BL BL_B Clk_B
 ** GLOBAL vdd
-Mpmos@0 vdd Clk_B BL_B vdd P L=0.022U W=0.022U
-Mpmos@1 vdd Clk_B BL vdd P L=0.022U W=0.022U
+Mpmos@0 vdd Clk_B BL_B vdd P L=0.022U W=0.44U
+Mpmos@1 vdd Clk_B BL vdd P L=0.022U W=0.44U
 .ENDS Project2__precharge
 
 *** SUBCIRCUIT Project2__precharge_word FROM CELL precharge_word{sch}
@@ -298,65 +314,54 @@ Xprecharg@3 BL4 BLB4 Clk Project2__precharge
 ** GLOBAL gnd
 ** GLOBAL vdd
 Mnmos@0 net@16 En gnd gnd N L=0.022U W=0.022U
-Mnmos@1 net@3 data gnd gnd N L=0.022U W=0.088U
-Mnmos@2 net@3 En Out gnd N L=0.022U W=0.044U
+Mnmos@1 net@3 data gnd gnd N L=0.022U W=0.22U
+Mnmos@2 net@3 En Out gnd N L=0.022U W=0.088U
 Mpmos@0 vdd En net@16 vdd P L=0.022U W=0.022U
-Mpmos@1 vdd data net@3 vdd P L=0.022U W=0.088U
-Mpmos@2 Out net@16 net@3 vdd P L=0.022U W=0.044U
+Mpmos@1 vdd data net@3 vdd P L=0.022U W=0.22U
+Mpmos@2 Out net@16 net@3 vdd P L=0.022U W=0.088U
 .ENDS Project2__tri_state_inverter
 
-*** SUBCIRCUIT Project2__memory_core FROM CELL memory_core{sch}
-.SUBCKT Project2__memory_core Clk_fast Clk_slow Deq Empty Enq Full I0 I1 I2 I3 O0 O1 O2 O3
+*** SUBCIRCUIT Project2__vwide_not FROM CELL vwide_not{sch}
+.SUBCKT Project2__vwide_not A O
 ** GLOBAL gnd
 ** GLOBAL vdd
-X_2_4_deco@0 DB DC DEn net@16 net@17 net@18 net@19 Project2__2_4_decoder
-X_2_4_deco@1 EB EC EEn net@20 net@21 net@22 net@23 Project2__2_4_decoder
+Mnmos@0 O A gnd gnd N L=0.022U W=0.22U
+Mpmos@0 vdd A O vdd P L=0.022U W=0.22U
+.ENDS Project2__vwide_not
+
+*** SUBCIRCUIT Project2__memory_core FROM CELL memory_core{sch}
+.SUBCKT Project2__memory_core Clk_fast_1 Clk_slow Deq Empty Enq Full I0 I1 I2 I3 O0 O1 O2 O3
+** GLOBAL gnd
+** GLOBAL vdd
+X_2_4_deco@0 DB DC net@341 DEn RWL0 RWL1 RWL2 RWL3 Project2__2_4_decoder
+X_2_4_deco@1 EB EC net@341 EEn WWL0 WWL1 WWL2 WWL3 Project2__2_4_decoder
+VVPulse@2 net@341 gnd pulse (0 1V 0.05ns 0ps 0ps 0.4ns 1ns) DC 0V AC 0V 0
 Xcontrol_@0 Clk_slow Deq DEn DA DB DC Enq EEn Empty EA EB EC Full Project2__control_logic
-Xmemory_b@0 net@0 net@2 net@4 net@6 net@8 net@10 net@12 net@14 net@1 net@3 net@5 net@7 net@9 net@11 net@13 net@15 net@16 net@17 net@18 net@19 net@20 net@21 net@22 net@23 Project2__memory_block
+Xmemory_b@0 WBL3 WBL2 WBL1 WBL0 WBL7 WBL6 WBL5 WBL4 RBL3 RBL2 RBL1 RBL0 RBL7 RBL6 RBL5 RBL4 RWL0 RWL1 RWL2 RWL3 WWL0 WWL1 WWL2 WWL3 Project2__memory_block
 XnotBasel@0 EA net@66 Project1__notBaseline
 XnotBasel@1 DA net@97 Project1__notBaseline
-Xprecharg@0 net@0 net@2 net@4 net@6 net@1 net@3 net@5 net@7 Clk_fast Project2__precharge_word
-Xprecharg@1 net@8 net@10 net@12 net@14 net@9 net@11 net@13 net@15 Clk_fast Project2__precharge_word
-Xtri_stat@1 I3 net@66 net@115 Project2__tri_state_inverter
-Xtri_stat@2 I2 net@66 net@116 Project2__tri_state_inverter
-Xtri_stat@3 I1 net@66 net@117 Project2__tri_state_inverter
-Xtri_stat@4 I0 net@66 net@118 Project2__tri_state_inverter
-Xtri_stat@5 I3 EA net@119 Project2__tri_state_inverter
-Xtri_stat@6 I2 EA net@120 Project2__tri_state_inverter
-Xtri_stat@7 I1 EA net@121 Project2__tri_state_inverter
-Xtri_stat@8 I0 EA net@122 Project2__tri_state_inverter
-Xtri_stat@9 net@135 net@97 O3 Project2__tri_state_inverter
-Xtri_stat@10 net@131 net@97 O2 Project2__tri_state_inverter
-Xtri_stat@11 net@127 net@97 O1 Project2__tri_state_inverter
-Xtri_stat@12 net@123 net@97 O0 Project2__tri_state_inverter
-Xtri_stat@13 net@139 DA O3 Project2__tri_state_inverter
-Xtri_stat@14 net@143 DA O2 Project2__tri_state_inverter
-Xtri_stat@15 net@147 DA O1 Project2__tri_state_inverter
-Xtri_stat@16 net@151 DA O0 Project2__tri_state_inverter
-Xvwide_no@0 net@50 net@0 Project2__vwide_not
-Xvwide_no@1 net@51 net@2 Project2__vwide_not
-Xvwide_no@2 net@52 net@4 Project2__vwide_not
-Xvwide_no@3 net@53 net@6 Project2__vwide_not
-Xvwide_no@4 net@54 net@8 Project2__vwide_not
-Xvwide_no@5 net@55 net@10 Project2__vwide_not
-Xvwide_no@6 net@56 net@12 Project2__vwide_not
-Xvwide_no@7 net@57 net@14 Project2__vwide_not
-Xwide_not@0 net@1 net@135 Project2__wide_not
-Xwide_not@1 net@3 net@131 Project2__wide_not
-Xwide_not@2 net@5 net@127 Project2__wide_not
-Xwide_not@3 net@7 net@123 Project2__wide_not
-Xwide_not@4 net@9 net@139 Project2__wide_not
-Xwide_not@5 net@11 net@143 Project2__wide_not
-Xwide_not@6 net@13 net@147 Project2__wide_not
-Xwide_not@7 net@15 net@151 Project2__wide_not
-Xwide_not@8 net@115 net@50 Project2__wide_not
-Xwide_not@9 net@116 net@51 Project2__wide_not
-Xwide_not@10 net@117 net@52 Project2__wide_not
-Xwide_not@11 net@118 net@53 Project2__wide_not
-Xwide_not@12 net@119 net@54 Project2__wide_not
-Xwide_not@13 net@120 net@55 Project2__wide_not
-Xwide_not@14 net@121 net@56 Project2__wide_not
-Xwide_not@15 net@122 net@57 Project2__wide_not
+Xprecharg@0 WBL3 WBL2 WBL1 WBL0 RBL3 RBL2 RBL1 RBL0 Clk_fast_1 Project2__precharge_word
+Xprecharg@1 WBL7 WBL6 WBL5 WBL4 RBL7 RBL6 RBL5 RBL4 Clk_fast_1 Project2__precharge_word
+Xtri_stat@1 net@155 net@66 WBL3 Project2__tri_state_inverter
+Xtri_stat@2 net@158 net@66 WBL2 Project2__tri_state_inverter
+Xtri_stat@3 net@161 net@66 WBL1 Project2__tri_state_inverter
+Xtri_stat@4 net@164 net@66 WBL0 Project2__tri_state_inverter
+Xtri_stat@5 net@155 EA WBL7 Project2__tri_state_inverter
+Xtri_stat@6 net@158 EA WBL6 Project2__tri_state_inverter
+Xtri_stat@7 net@161 EA WBL5 Project2__tri_state_inverter
+Xtri_stat@8 net@164 EA WBL4 Project2__tri_state_inverter
+Xtri_stat@9 RBL3 net@97 O3 Project2__tri_state_inverter
+Xtri_stat@10 RBL2 net@97 O2 Project2__tri_state_inverter
+Xtri_stat@11 RBL1 net@97 O1 Project2__tri_state_inverter
+Xtri_stat@12 RBL0 net@97 O0 Project2__tri_state_inverter
+Xtri_stat@13 RBL7 DA O3 Project2__tri_state_inverter
+Xtri_stat@14 RBL6 DA O2 Project2__tri_state_inverter
+Xtri_stat@15 RBL5 DA O1 Project2__tri_state_inverter
+Xtri_stat@16 RBL4 DA O0 Project2__tri_state_inverter
+Xvwide_no@0 I3 net@155 Project2__vwide_not
+Xvwide_no@1 I2 net@158 Project2__vwide_not
+Xvwide_no@2 I1 net@161 Project2__vwide_not
+Xvwide_no@3 I0 net@164 Project2__vwide_not
 .ENDS Project2__memory_core
 
 *** SUBCIRCUIT Project2__top_level FROM CELL top_level{sch}
@@ -371,14 +376,14 @@ Xmemory_c@0 Clk_fast Clk_slow net@6 net@25 net@4 net@23 net@54 net@56 net@58 net
 .global gnd vdd
 
 *** TOP LEVEL CELL: final_test{sch}
-VVPWL@0 Enq gnd pwl (0ns 0V .8ns 0V .9ns 1V 8.6ns 1V 8.7ns 0V) DC 0V AC 0V 0
-VVPWL@1 Deq gnd pwl (0ns 0V 8.8ns 0V 8.9ns 1V 16.6ns 1V 16.7ns 0V) DC 0V AC 0V 0
-VVPWL@2 I3 gnd pwl (0ns 0V 7.8ns 0V 7.9ns 1V 8.6ns 1V 8.7ns 0V) DC 0V AC 0V 0
-VVPWL@3 I2 gnd pwl (0ns 0V 3.8ns 0V 3.9ns 1V 7.6ns 1V 7.7ns 0V) DC 0V AC 0V 0
-VVPWL@4 I1 gnd pwl (0ns 0V 2.8ns 0V 2.9ns 1V 4.6ns 1V 4.7ns 0V 6.8ns 0V 6.9ns 1V 8.6ns 1V 8.7ns 0V) DC 0V AC 0V 0
-VVPWL@5 I0 gnd pwl (0ns 0V .8ns 0V .9ns 1V 1.6ns 1V 1.7ns 0V 2.8ns 0V 2.9ns 1V 3.6ns 1V 3.7ns 0V 4.8ns 0V 4.9ns 1V 5.6ns 1V 5.7ns 0V 6.8ns 0V 6.9ns 1V 7.6ns 1V 7.7ns 0V) DC 0V AC 0V 0
-VVPulse@0 Clk_double_freq gnd pulse (0 1V 0ns 0ps 0ps .5ns 1ns) DC 0V AC 0V 0
+VVPWL@0 Enq gnd pwl (0ns 0V 1.8ns 0V 1.9ns 1V 18.6ns 1V 18.7ns 0V) DC 0V AC 0V 0
+VVPWL@1 Deq gnd pwl (0ns 0V 19.8ns 0V 19.9ns 1V 36.6ns 1V 36.7ns 0V) DC 0V AC 0V 0
+VVPWL@2 I3  gnd pwl (0ns 0V 15.8ns 0V 15.9ns 1V 17.6ns 1V 17.7ns 0V) DC 0V AC 0V 0
+VVPWL@3 I2  gnd pwl (0ns 0V 7.8ns 0V 7.9ns 1V 15.6ns 1V 15.7ns 0V) DC 0V AC 0V 0
+VVPWL@4 I1  gnd pwl (0ns 0V 3.8ns 0V 3.9ns 1V 7.6ns 1V 7.7ns 0V 11.8ns 0V 11.9ns 1V 15.6ns 1V 15.7ns 0V) DC 0V AC 0V 0
+VVPWL@5 I0  gnd pwl (0ns 0V 1.8ns 0V 1.9ns 1V 3.6ns 1V 3.7ns 0V 5.8ns 0V 5.9ns 1V 7.6ns 1V 7.7ns 0V 9.8ns 0V 9.9ns 1V 11.6ns 1V 11.7ns 0V 13.8ns 0V 13.9ns 1V 15.6ns 1V 15.7ns 0V) DC 0V AC 0V 0
+VVPulse@0 clk_fast gnd pulse (0 1V 0ns 0ps 0ps .5ns 1ns) DC 0V AC 0V 0
+VVPulse@1 clk gnd pulse (0 1V 0ns 0ps 0ps 1ns 2ns) DC 0V AC 0V 0
 VV_Generi@0 vdd gnd DC 1 AC 0
-Xclock_di@0 Clk_double_freq Clk Project2__clock_div
-Xtop_leve@0 Clk_double_freq Clk Deq Empty Enq Full I0 I1 I2 I3 O0 O1 O2 O3 Project2__top_level
+Xtop_leve@0 clk_fast clk Deq Empty Enq Full I0 I1 I2 I3 O0 O1 O2 O3 Project2__top_level
 .END
