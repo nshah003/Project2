@@ -1,7 +1,7 @@
 *** SPICE deck for cell memory_core_test{sch} from library Project2
 *** Created on Thu Dec 03, 2015 14:08:13
-*** Last revised on Fri Dec 04, 2015 17:26:53
-*** Written on Fri Dec 04, 2015 19:54:45 by Electric VLSI Design System, version 9.06
+*** Last revised on Fri Dec 04, 2015 20:16:50
+*** Written on Fri Dec 04, 2015 20:17:04 by Electric VLSI Design System, version 9.06
 *** Layout tech: mocmos, foundry MOSIS
 *** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
 * Model cards are described in this file:
@@ -348,14 +348,10 @@ Xvwide_no@3 I0 net@164 Project2__vwide_not
 .global gnd vdd
 
 *** TOP LEVEL CELL: memory_core_test{sch}
-VVPWL@0 Enq gnd pwl (0ns 0V 1.8ns 0V 1.9ns 1V 18.6ns 1V 18.7ns 0V) DC 0V AC 0V 0
-VVPWL@1 Deq gnd pwl (0ns 0V 19.8ns 0V 19.9ns 1V 36.6ns 1V 36.7ns 0V) DC 0V AC 0V 0
-VVPWL@2 I3 gnd pwl (0ns 0V 15.8ns 0V 15.9ns 1V 17.6ns 1V 17.7ns 0V) DC 0V AC 0V 0
-VVPWL@3 I2 gnd pwl (0ns 0V 7.8ns 0V 7.9ns 1V 15.6ns 1V 15.7ns 0V) DC 0V AC 0V 0
-VVPWL@4 I1 gnd pwl (0ns 0V 3.8ns 0V 3.9ns 1V 7.6ns 1V 7.7ns 0V 11.8ns 0V 11.9ns 1V 15.6ns 1V 15.7ns 0V) DC 0V AC 0V 0
-VVPWL@5 I0 gnd pwl (0ns 0V 1.8ns 0V 1.9ns 1V 3.6ns 1V 3.7ns 0V 5.8ns 0V 5.9ns 1V 7.6ns 1V 7.7ns 0V 9.8ns 0V 9.9ns 1V 11.6ns 1V 11.7ns 0V 13.8ns 0V 13.9ns 1V 15.6ns 1V 15.7ns 0V) DC 0V AC 0V 0
+VVPWL@0 Enq gnd pwl (0ns 0V 1.8ns 0V 1.9ns 1V 20.6ns 1V 20.7ns 0V) DC 0V AC 0V 0
+VVPWL@1 Deq gnd pwl (0ns 0V 23.8ns 0V 23.9ns 1V 40.6ns 1V 40.7ns 0V) DC 0V AC 0V 0
 VVPulse@0 clk_fast gnd pulse (0 1V 0ns 0ps 0ps .5ns 1ns) DC 0V AC 0V 0
 VVPulse@1 clk gnd pulse (0 1V 0ns 0ps 0ps 1ns 2ns) DC 0V AC 0V 0
 VV_Generi@0 vdd gnd DC 1 AC 0
-Xmemory_c@0 clk_fast clk Deq Empty Enq Full I0 I1 I2 I3 Out0 Out1 Out2 Out3 Project2__memory_core
+Xmemory_c@0 clk_fast clk Deq Empty Enq Full gnd gnd vdd vdd Out0 Out1 Out2 Out3 Project2__memory_core
 .END
